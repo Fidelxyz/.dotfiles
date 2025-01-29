@@ -1,6 +1,11 @@
 return {
     "akinsho/toggleterm.nvim",
     version = "*",
+
+    cond = function()
+        return not vim.g.vscode
+    end,
+
     keys = {
         { "<C-\\>" },
     },

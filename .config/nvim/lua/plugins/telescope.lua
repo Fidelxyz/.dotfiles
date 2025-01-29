@@ -3,6 +3,10 @@ return {
     branch = "0.1.x",
     dependencies = { "nvim-lua/plenary.nvim" },
 
+    cond = function()
+        return not vim.g.vscode
+    end,
+
     keys = {
         { "<C-Space>", require("telescope.builtin").find_files, desc = "Telescope find files" },
         { "<leader>ff", require("telescope.builtin").find_files, desc = "Telescope find files" },

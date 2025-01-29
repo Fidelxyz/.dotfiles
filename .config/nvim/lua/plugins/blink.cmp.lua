@@ -4,6 +4,10 @@ return {
     dependencies = "rafamadriz/friendly-snippets",
     version = "*",
 
+    cond = function()
+        return not vim.g.vscode
+    end,
+
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {

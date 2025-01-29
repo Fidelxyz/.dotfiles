@@ -6,6 +6,10 @@ return {
         "nvim-tree/nvim-web-devicons",
     },
 
+    cond = function()
+        return not vim.g.vscode
+    end,
+
     config = function()
         vim.g.loaded_netrw = 1
         vim.g.loaded_netrwPlugin = 1

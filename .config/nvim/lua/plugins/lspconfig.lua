@@ -3,6 +3,10 @@ return {
     version = "*",
     dependencies = { "saghen/blink.cmp" },
 
+    cond = function()
+        return not vim.g.vscode
+    end,
+
     config = function()
         local capabilities = require("blink.cmp").get_lsp_capabilities()
         local lspconfig = require("lspconfig")

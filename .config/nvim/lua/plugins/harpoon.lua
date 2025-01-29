@@ -3,6 +3,10 @@ return {
     branch = "harpoon2",
     dependencies = { "nvim-lua/plenary.nvim" },
 
+    cond = function()
+        return not vim.g.vscode
+    end,
+
     keys = {
         { "<Tab>" },
         { "<leader>a" },

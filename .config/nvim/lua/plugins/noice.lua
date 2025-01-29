@@ -8,6 +8,10 @@ return {
         "nvim-telescope/telescope.nvim",
     },
 
+    cond = function()
+        return not vim.g.vscode
+    end,
+
     opts = {
         lsp = {
             -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
