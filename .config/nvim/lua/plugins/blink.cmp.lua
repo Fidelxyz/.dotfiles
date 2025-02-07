@@ -8,6 +8,8 @@ return {
         return not vim.g.vscode
     end,
 
+    event = { "InsertEnter", "CmdlineEnter" },
+
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {

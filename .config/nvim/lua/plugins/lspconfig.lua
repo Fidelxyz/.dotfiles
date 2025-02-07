@@ -7,6 +7,17 @@ return {
         return not vim.g.vscode
     end,
 
+    event = { "BufReadPre", "BufNewFile" },
+
+    keys = {
+        {
+            "<C-CR>",
+            function()
+                vim.lsp.buf.code_action()
+            end,
+        },
+    },
+
     config = function()
         local capabilities = require("blink.cmp").get_lsp_capabilities()
         local lspconfig = require("lspconfig")
@@ -18,9 +29,5 @@ return {
                 "--clang-tidy",
             },
         })
-
-        vim.keymap.set("n", "<C-CR>", function()
-            vim.lsp.buf.code_action()
-        end)
     end,
 }
