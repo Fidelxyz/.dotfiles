@@ -6,7 +6,7 @@ return {
         return not vim.g.vscode
     end,
 
-    event = { "BufReadPre", "BufNewFile" },
+    event = { "BufRead", "BufNewFile" },
 
     ---@module "ibl"
     ---@type ibl.config

@@ -15,6 +15,9 @@ return {
                 scope_color = "subtext0",
                 colored_indent_levels = false,
             },
+            blink_cmp = true,
+            copilot_vim = true,
+            which_key = true,
         },
     },
     config = function(_, opts)

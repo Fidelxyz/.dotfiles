@@ -7,7 +7,7 @@ vim.wo.number = true
 -- Indent
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
-vim.opt.expandtab = truei
+vim.opt.expandtab = true
 
 -- Warp
 vim.opt.wrap = false

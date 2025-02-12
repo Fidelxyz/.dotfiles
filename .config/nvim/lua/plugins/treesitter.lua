@@ -6,5 +6,5 @@ return {
         return not vim.g.vscode
     end,
 
-    event = { "BufReadPre", "BufNewFile" },
+    event = { "BufRead", "BufNewFile" },
 }

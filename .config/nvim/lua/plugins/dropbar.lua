@@ -5,9 +5,28 @@ return {
         return not vim.g.vscode
     end,
 
-    event = { "BufReadPre", "BufNewFile" },
+    event = { "BufRead", "BufNewFile" },
 
-    config = function()
+    opts = {
+        bar = {
+            enable = function(buf, win, _)
+                if
+                    not vim.api.nvim_buf_is_valid(buf)
+                    or not vim.api.nvim_win_is_valid(win)
+                    or vim.fn.win_gettype(win) ~= ""
+                    or vim.wo[win].winbar ~= ""
+                    or vim.bo[buf].ft == "help"
+                then
+                    return false
+                end
+
+                return vim.bo[buf].buftype == "" and vim.bo[buf].ft ~= "NvimTree" and vim.bo[buf].ft ~= "toggleterm"
+            end,
+        },
+    },
+    config = function(_, opts)
+        require("dropbar").setup(opts)
+
         local dropbar_api = require("dropbar.api")
         vim.keymap.set("n", "<Leader>;", dropbar_api.pick, { desc = "Pick symbols in winbar" })
         vim.keymap.set("n", "[;", dropbar_api.goto_context_start, { desc = "Go to start of current context" })
