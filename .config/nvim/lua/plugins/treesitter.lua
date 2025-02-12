@@ -5,4 +5,6 @@ return {
     cond = function()
         return not vim.g.vscode
     end,
+
+    event = { "BufReadPre", "BufNewFile" },
 }

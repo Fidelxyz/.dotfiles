@@ -9,6 +9,13 @@ return {
     opts = {
         options = {
             globalstatus = true,
+
+            section_separators = "",
+            component_separators = "│",
+        },
+
+        sections = {
+            lualine_x = { "copilot", "encoding", "fileformat", "filetype" },
         },
     },
 
