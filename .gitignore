@@ -1,1 +1,5 @@
 lazy-lock.json
+
+# Zsh
+.zcompdump-*
+.zsh_history
