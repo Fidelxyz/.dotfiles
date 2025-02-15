@@ -15,4 +15,5 @@ vim.opt.wrap = false
 -- Clipboard
 vim.opt.clipboard = "unnamedplus"
 
+-- Editor
 vim.opt.scrolloff = 8
