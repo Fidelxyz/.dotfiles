@@ -1,3 +1,5 @@
+local builtin = require("telescope.builtin")
+
 return {
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
@@ -11,52 +13,43 @@ return {
     keys = {
         {
             "<C-Space>",
-            function()
-                require("telescope.builtin").find_files()
-            end,
+            builtin.find_files,
             desc = "Telescope find files",
         },
         {
             "<leader>ff",
-            function()
-                require("telescope.builtin").find_files()
-            end,
+            builtin.find_files,
             desc = "Telescope find files",
         },
         {
             "<leader>fg",
-            function()
-                require("telescope.builtin").live_grep()
-            end,
+            builtin.live_grep,
             desc = "Telescope live grep",
         },
         {
             "<leader>fb",
-            function()
-                require("telescope.builtin").buffers()
-            end,
+            builtin.buffers,
             desc = "Telescope buffers",
         },
         {
             "<leader>fh",
-            function()
-                require("telescope.builtin").help_tags()
-            end,
+            builtin.help_tags,
             desc = "Telescope help tags",
         },
         {
             "<leader>fr",
-            function()
-                require("telescope.builtin").lsp_references()
-            end,
+            builtin.lsp_references,
             desc = "Telescope LSP references",
         },
         {
             "<leader>fs",
-            function()
-                require("telescope.builtin").lsp_workspace_symbols()
-            end,
+            builtin.lsp_workspace_symbols,
             desc = "Telescope LSP symbols",
+        },
+        {
+            "<leader>fk",
+            builtin.keymaps,
+            desc = "Telescope keymaps",
         },
     },
 }

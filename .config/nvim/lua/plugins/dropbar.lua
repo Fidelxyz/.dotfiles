@@ -20,8 +20,12 @@ return {
                     return false
                 end
 
-                return vim.bo[buf].buftype == "" and vim.bo[buf].ft ~= "NvimTree" and vim.bo[buf].ft ~= "toggleterm"
+                return vim.bo[buf].buftype == ""
             end,
+            attach_events = {
+                "BufRead",
+                "BufNewFile",
+            },
         },
     },
     config = function(_, opts)

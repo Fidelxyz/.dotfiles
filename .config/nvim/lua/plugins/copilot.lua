@@ -22,21 +22,6 @@ return {
             },
         },
     },
-    keys = {
-        {
-            "<Tab>",
-            function()
-                local suggestion = require("copilot.suggestion")
-                if suggestion.is_visible() then
-                    suggestion.accept()
-                else
-                    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
-                end
-            end,
-            mode = "i",
-            desc = "Super Tab",
-        },
-    },
     config = function(_, opts)
         require("copilot").setup(opts)
 
