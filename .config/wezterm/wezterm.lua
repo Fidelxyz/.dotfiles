@@ -1,6 +1,9 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
+require("keymaps").setup(config)
+require("events")
+
 config.set_environment_variables = {
 	PATH = "/opt/homebrew/bin:" .. os.getenv("PATH"),
 }
@@ -19,7 +22,7 @@ config.window_padding = {
 }
 config.window_decorations = "INTEGRATED_BUTTONS | RESIZE | MACOS_FORCE_ENABLE_SHADOW"
 config.window_frame = {
-	font = wezterm.font({ family = "JetBrains Mono NL", weight = "Bold" }),
+	font = wezterm.font({ family = "JetBrainsMono Nerd Font Mono", weight = "Bold" }),
 	font_size = 14,
 }
 
@@ -57,61 +60,14 @@ end)
 config.color_scheme = "iTerm2 Smoooooth"
 
 -- Font
-config.font = wezterm.font("CaskaydiaMono Nerd Font Mono")
+-- config.font = wezterm.font("CaskaydiaMono Nerd Font Mono")
+config.font = wezterm.font("JetBrainsMono Nerd Font Mono")
 config.font_size = 16.0
+config.line_height = 1
 
 -- Keyboard
 config.enable_kitty_keyboard = true
 config.send_composed_key_when_left_alt_is_pressed = false
 config.send_composed_key_when_right_alt_is_pressed = false
-
--- Key Bindings
-config.leader = {
-	key = "a",
-	mods = "CMD",
-	timeout_milliseconds = math.maxinteger,
-}
-config.keys = {
-	-- Open Configuration
-	{
-		key = ",",
-		mods = "SUPER",
-		action = wezterm.action.SpawnCommandInNewTab({
-			cwd = wezterm.config_dir,
-			args = { "nvim", wezterm.config_file },
-		}),
-	},
-	-- Splitting Panes
-	{
-		key = '"',
-		mods = "LEADER",
-		action = wezterm.action({ SplitVertical = { domain = "CurrentPaneDomain" } }),
-	},
-	{
-		key = "%",
-		mods = "LEADER",
-		action = wezterm.action({ SplitHorizontal = { domain = "CurrentPaneDomain" } }),
-	},
-	{
-		key = "UpArrow",
-		mods = "LEADER",
-		action = wezterm.action.ActivatePaneDirection("Up"),
-	},
-	{
-		key = "DownArrow",
-		mods = "LEADER",
-		action = wezterm.action.ActivatePaneDirection("Down"),
-	},
-	{
-		key = "LeftArrow",
-		mods = "LEADER",
-		action = wezterm.action.ActivatePaneDirection("Left"),
-	},
-	{
-		key = "RightArrow",
-		mods = "LEADER",
-		action = wezterm.action.ActivatePaneDirection("Right"),
-	},
-}
 
 return config
