@@ -17,3 +17,5 @@ vim.opt.clipboard = "unnamedplus"
 
 -- Editor
 vim.opt.scrolloff = 8
+
+vim.lsp.inlay_hint.enable(true)

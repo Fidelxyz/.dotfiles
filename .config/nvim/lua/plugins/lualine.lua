@@ -1,10 +1,7 @@
 return {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-
-    cond = function()
-        return not vim.g.vscode
-    end,
+    cond = require("utils").is_not_vscode,
 
     opts = {
         options = {

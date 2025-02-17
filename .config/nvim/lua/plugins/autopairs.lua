@@ -1,10 +1,6 @@
 return {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
-
-    cond = function()
-        return not vim.g.vscode
-    end,
-
-    config = true,
+    cond = require("utils").is_not_vscode,
+    opts = {},
 }

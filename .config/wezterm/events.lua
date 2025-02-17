@@ -11,8 +11,8 @@ wezterm.on("window-resized", function(window, _)
 
 	-- Example logic: Set font size based on window width
 	if width > 3840 and height > 2160 then
-		overrides.font_size = 18.0
-		overrides.line_height = 1.2
+		overrides.font_size = 20.0
+		overrides.line_height = 1.15
 	else
 		overrides.font_size = nil
 		overrides.line_height = nil

@@ -4,10 +4,7 @@ return {
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
     dependencies = { "nvim-lua/plenary.nvim" },
-
-    cond = function()
-        return not vim.g.vscode
-    end,
+    cond = require("utils").is_not_vscode,
 
     cmd = "Telescope",
     keys = {

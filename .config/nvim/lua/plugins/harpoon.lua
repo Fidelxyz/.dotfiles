@@ -2,12 +2,9 @@ return {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
     dependencies = { "nvim-lua/plenary.nvim" },
+    cond = require("utils").is_not_vscode,
 
-    cond = function()
-        return not vim.g.vscode
-    end,
-
-    keys = { "<Tab>", "<leader>a", "1", "2", "3", "4", "5", "6", "7", "8", "9", "[", "]" },
+    keys = { "<Tab>", "<leader>a", "1", "2", "3", "4", "5", "6", "7", "8", "9", "<leader>[", "<leader>]" },
 
     opts = {
         settings = {
@@ -60,10 +57,10 @@ return {
         end, { desc = "Select Harpoon list item 9" })
 
         -- Toggle previous & next buffers stored within Harpoon list
-        vim.keymap.set("n", "[", function()
+        vim.keymap.set("n", "<leader>[", function()
             harpoon:list():prev()
         end, { desc = "Previous Harpoon list item" })
-        vim.keymap.set("n", "]", function()
+        vim.keymap.set("n", "<leader>]", function()
             harpoon:list():next()
         end, { desc = "Next Harpoon list item" })
     end,

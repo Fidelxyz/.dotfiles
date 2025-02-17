@@ -2,10 +2,7 @@ return {
     "neovim/nvim-lspconfig",
     version = "*",
     dependencies = { "saghen/blink.cmp" },
-
-    cond = function()
-        return not vim.g.vscode
-    end,
+    cond = require("utils").is_not_vscode,
 
     event = { "BufReadPre", "BufNewFile" },
 

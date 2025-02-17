@@ -1,10 +1,7 @@
 return {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
-
-    cond = function()
-        return not vim.g.vscode
-    end,
+    cond = require("utils").is_not_vscode,
 
     event = { "BufRead", "BufNewFile" },
 

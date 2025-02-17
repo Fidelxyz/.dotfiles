@@ -9,4 +9,8 @@ function M.is_blank_line()
     return vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:match("%S") == nil
 end
 
+function M.is_not_vscode()
+    return not vim.g.vscode
+end
+
 return M

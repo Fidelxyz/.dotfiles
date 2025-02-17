@@ -2,10 +2,7 @@ return {
     "catppuccin/nvim",
     name = "catppuccin",
     priority = 1000,
-
-    cond = function()
-        return not vim.g.vscode
-    end,
+    cond = require("utils").is_not_vscode,
 
     opts = {
         flavour = "mocha",
@@ -18,6 +15,10 @@ return {
             blink_cmp = true,
             copilot_vim = true,
             which_key = true,
+            dropbar = {
+                enabled = true,
+                color_mode = true,
+            },
         },
     },
     config = function(_, opts)
