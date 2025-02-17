@@ -1,10 +1,7 @@
 return {
     "akinsho/toggleterm.nvim",
     version = "*",
-
-    cond = function()
-        return not vim.g.vscode
-    end,
+    cond = require("utils").is_not_vscode,
 
     keys = {
         { "<C-\\>" },

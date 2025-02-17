@@ -1,12 +1,9 @@
 return {
     "kdheepak/lazygit.nvim",
-    lazy = true,
     dependencies = {
         "nvim-lua/plenary.nvim",
     },
-    cond = function()
-        return not vim.g.vscode
-    end,
+    cond = require("utils").is_not_vscode,
 
     cmd = {
         "LazyGit",

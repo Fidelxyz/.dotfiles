@@ -6,10 +6,7 @@ return {
         "giuxtaposition/blink-cmp-copilot",
     },
     version = "*",
-
-    cond = function()
-        return not vim.g.vscode
-    end,
+    cond = require("utils").is_not_vscode,
 
     event = { "InsertEnter", "CmdlineEnter" },
 

@@ -1,3 +1,5 @@
+local utils = require("utils")
+
 local M = {}
 
 ---@class IndentInfo
@@ -70,17 +72,19 @@ M.check_indent = function()
     return true
 end
 
-vim.api.nvim_create_autocmd("BufRead", {
-    callback = function(args)
-        fetch_indent_info(args.buf)
-    end,
-})
+if utils.is_not_vscode() then
+    vim.api.nvim_create_autocmd("BufRead", {
+        callback = function(args)
+            fetch_indent_info(args.buf)
+        end,
+    })
 
-vim.api.nvim_create_autocmd("OptionSet", {
-    pattern = { "indentexpr", "expandtab", "tabstop" },
-    callback = function()
-        fetch_indent_info(vim.api.nvim_get_current_buf())
-    end,
-})
+    vim.api.nvim_create_autocmd("OptionSet", {
+        pattern = { "indentexpr", "expandtab", "tabstop" },
+        callback = function()
+            fetch_indent_info(vim.api.nvim_get_current_buf())
+        end,
+    })
+end
 
 return M
