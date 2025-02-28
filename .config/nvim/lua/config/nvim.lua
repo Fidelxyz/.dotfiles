@@ -10,7 +10,7 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
 -- Warp
-vim.opt.wrap = false
+-- vim.opt.wrap = false
 
 -- Clipboard
 vim.opt.clipboard = "unnamedplus"

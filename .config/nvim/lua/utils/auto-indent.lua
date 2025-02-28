@@ -12,7 +12,9 @@ local indent_info = {
     tabstop = 4,
 }
 
-local indentexpr_func = nil
+local indentexpr_func = function(lnum)
+    return require("nvim-treesitter.indent").get_indent(lnum)
+end
 
 ---@param bufnr number
 local function fetch_indent_info(bufnr)
@@ -55,7 +57,7 @@ M.check_indent = function()
     local current_indent = vim.fn.indent(row)
     local target_indent = get_target_indent(row)
 
-    print(row, current_indent, target_indent)
+    -- print(row, current_indent, target_indent)
 
     if current_indent >= target_indent then
         return false
