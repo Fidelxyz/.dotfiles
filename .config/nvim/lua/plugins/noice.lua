@@ -28,5 +28,12 @@ return {
         messages = {
             enabled = false,
         },
+        views = {
+            mini = {
+                position = {
+                    row = -2,
+                },
+            },
+        },
     },
 }
