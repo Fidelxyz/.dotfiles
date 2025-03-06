@@ -30,11 +30,14 @@ config.window_frame = {
 config.color_scheme = "iTerm2 Smoooooth"
 
 -- Font
--- config.font = wezterm.font("CaskaydiaMono Nerd Font Mono")
-config.font = wezterm.font("JetBrainsMono Nerd Font Mono")
-config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
+config.font = wezterm.font("CaskaydiaMono Nerd Font Mono")
+-- config.font = wezterm.font({
+-- 	family = "JetBrainsMono Nerd Font Mono",
+-- 	harfbuzz_features = { "calt=0" },
+-- })
+-- config.font = wezterm.font("Monaspace Argon")
 config.font_size = 16.0
-config.line_height = 1
+config.line_height = 1.1
 
 -- Keyboard
 config.enable_kitty_keyboard = true

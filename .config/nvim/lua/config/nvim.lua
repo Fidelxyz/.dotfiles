@@ -19,3 +19,7 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.scrolloff = 8
 
 vim.lsp.inlay_hint.enable(true)
+
+-- Search
+vim.opt.ignorecase = true
+vim.opt.smartcase = true

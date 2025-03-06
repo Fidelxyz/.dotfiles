@@ -1,5 +1,6 @@
 vim.keymap.set("n", "<C-i>", "<C-i>", { noremap = true })
 
+-- Super Tab
 vim.keymap.set("i", "<Tab>", function()
     local utils = require("utils")
     local smart_tab = require("smart-tab")
@@ -14,3 +15,18 @@ vim.keymap.set("i", "<Tab>", function()
         vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
     end
 end, { desc = "Super Tab" })
+
+-- Rename
+vim.keymap.set("n", "<leader>r", function()
+    local new_name = vim.fn.input("Rename")
+    if new_name ~= "" then
+        vim.lsp.buf.rename(new_name)
+    end
+end, { desc = "Rename" })
+
+-- Diagnostic
+vim.keymap.set("n", "<leader>d", function()
+    vim.diagnostic.open_float({
+        scope = "cursor",
+    })
+end, { desc = "Show line diagnostics" })
