@@ -45,6 +45,9 @@ return {
                     auto_show = true,
                 },
             },
+            keymap = {
+                preset = "super-tab",
+            },
         },
 
         -- Default list of enabled providers defined so that you can extend it
