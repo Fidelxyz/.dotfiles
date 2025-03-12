@@ -14,7 +14,7 @@ eval "$(gh copilot alias -- zsh)"
 # ========================================
 
 # Vcpkg
-export VCPKG_ROOT="$HOME/vcpkg"
+export VCPKG_ROOT="$HOME/.local/bin/vcpkg"
 
 # Rust
 export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
