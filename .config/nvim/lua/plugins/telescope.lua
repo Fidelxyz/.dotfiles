@@ -56,6 +56,13 @@ return {
             desc = "Telescope LSP symbols",
         },
         {
+            "<leader>fd",
+            function()
+                require("telescope.builtin").lsp_document_symbols()
+            end,
+            desc = "Telescope LSP document symbols",
+        },
+        {
             "<leader>fk",
             function()
                 require("telescope.builtin").keymaps()

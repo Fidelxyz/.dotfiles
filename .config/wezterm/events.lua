@@ -10,7 +10,7 @@ wezterm.on("window-resized", function(window, _)
 	local overrides = window:get_config_overrides() or {}
 
 	-- Example logic: Set font size based on window width
-	if width > 3840 and height > 2160 then
+	if width > 3200 and height > 2400 then
 		overrides.font_size = 20.0
 		overrides.line_height = 1.15
 	else
