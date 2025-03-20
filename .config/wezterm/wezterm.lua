@@ -11,8 +11,8 @@ config.set_environment_variables = {
 -- Window
 config.initial_rows = 30
 config.initial_cols = 100
-config.window_background_opacity = 0.75
-config.text_background_opacity = 0.75
+config.window_background_opacity = 0.8
+config.text_background_opacity = 0.8
 config.macos_window_background_blur = 30
 config.window_padding = {
 	left = 30,
@@ -30,12 +30,16 @@ config.window_frame = {
 config.color_scheme = "iTerm2 Smoooooth"
 
 -- Font
-config.font = wezterm.font("CaskaydiaMono Nerd Font Mono")
+-- config.font = wezterm.font("CaskaydiaMono Nerd Font Mono")
 -- config.font = wezterm.font({
 -- 	family = "JetBrainsMono Nerd Font Mono",
 -- 	harfbuzz_features = { "calt=0" },
 -- })
 -- config.font = wezterm.font("Monaspace Argon")
+config.font = wezterm.font({
+	family = "Maple Mono NF CN",
+	-- weight = "Medium",
+})
 config.font_size = 16.0
 config.line_height = 1.1
 
