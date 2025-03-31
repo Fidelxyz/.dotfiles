@@ -34,11 +34,11 @@ config.color_scheme = "iTerm2 Smoooooth"
 -- config.font = wezterm.font({
 -- 	family = "JetBrainsMono Nerd Font Mono",
 -- 	harfbuzz_features = { "calt=0" },
+-- 	weight = "Medium",
 -- })
 -- config.font = wezterm.font("Monaspace Argon")
 config.font = wezterm.font({
 	family = "Maple Mono NF CN",
-	-- weight = "Medium",
 })
 config.font_size = 16.0
 config.line_height = 1.1

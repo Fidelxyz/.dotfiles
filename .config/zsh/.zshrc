@@ -19,6 +19,9 @@ export VCPKG_ROOT="$HOME/.local/bin/vcpkg"
 # Rust
 export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
 
+# Python
+alias python=python3
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/opt/homebrew/Caskroom/miniforge/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"

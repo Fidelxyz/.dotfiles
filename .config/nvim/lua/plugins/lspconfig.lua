@@ -27,6 +27,7 @@ return {
             },
             -- Python
             ruff = {},
+            basedpyright = {},
             -- Lua
             lua_ls = {
                 on_init = function(client)
