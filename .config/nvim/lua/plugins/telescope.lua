@@ -30,7 +30,9 @@ return {
         {
             "<leader>fb",
             function()
-                require("telescope.builtin").buffers()
+                require("telescope.builtin").buffers({
+                    initial_mode = "normal",
+                })
             end,
             desc = "Telescope buffers",
         },
@@ -44,7 +46,9 @@ return {
         {
             "<leader>fr",
             function()
-                require("telescope.builtin").lsp_references()
+                require("telescope.builtin").lsp_references({
+                    initial_mode = "normal",
+                })
             end,
             desc = "Telescope LSP references",
         },

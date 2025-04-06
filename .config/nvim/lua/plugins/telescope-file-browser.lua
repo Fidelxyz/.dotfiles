@@ -6,7 +6,9 @@ return {
         {
             "<leader>e",
             function()
-                require("telescope").extensions.file_browser.file_browser()
+                require("telescope").extensions.file_browser.file_browser({
+                    initial_mode = "normal",
+                })
             end,
             desc = "Telescope File Browser",
         },
