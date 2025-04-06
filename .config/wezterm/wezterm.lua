@@ -20,7 +20,8 @@ config.window_padding = {
 	top = 30,
 	bottom = 30,
 }
-config.window_decorations = "INTEGRATED_BUTTONS | RESIZE | MACOS_FORCE_ENABLE_SHADOW"
+-- config.window_decorations = "INTEGRATED_BUTTONS | RESIZE | MACOS_FORCE_ENABLE_SHADOW"
+config.window_decorations = "INTEGRATED_BUTTONS | RESIZE"
 config.window_frame = {
 	font = wezterm.font({ family = "JetBrainsMono Nerd Font Mono", weight = "Bold" }),
 	font_size = 14,

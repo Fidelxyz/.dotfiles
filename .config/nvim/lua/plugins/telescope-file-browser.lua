@@ -11,4 +11,14 @@ return {
             desc = "Telescope File Browser",
         },
     },
+
+    config = function()
+        require("telescope").setup({
+            extensions = {
+                file_browser = {
+                    hidden = true,
+                },
+            },
+        })
+    end,
 }
