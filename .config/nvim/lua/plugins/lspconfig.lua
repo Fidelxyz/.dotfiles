@@ -66,7 +66,15 @@ return {
                 },
             },
             -- Rust
-            rust_analyzer = {},
+            rust_analyzer = {
+                settings = {
+                    ["rust-analyzer"] = {
+                        check = {
+                            command = "clippy",
+                        },
+                    },
+                },
+            },
         },
     },
 
