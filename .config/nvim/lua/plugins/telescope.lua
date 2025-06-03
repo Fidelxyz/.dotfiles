@@ -8,23 +8,17 @@ return {
     keys = {
         {
             "<C-Space>",
-            function()
-                require("telescope.builtin").find_files()
-            end,
+            function() require("telescope.builtin").find_files() end,
             desc = "Telescope find files",
         },
         {
             "<leader>ff",
-            function()
-                require("telescope.builtin").find_files()
-            end,
+            function() require("telescope.builtin").find_files() end,
             desc = "Telescope find files",
         },
         {
             "<leader>fg",
-            function()
-                require("telescope.builtin").live_grep()
-            end,
+            function() require("telescope.builtin").live_grep() end,
             desc = "Telescope live grep",
         },
         {
@@ -38,9 +32,7 @@ return {
         },
         {
             "<leader>fh",
-            function()
-                require("telescope.builtin").help_tags()
-            end,
+            function() require("telescope.builtin").help_tags() end,
             desc = "Telescope help tags",
         },
         {
@@ -54,23 +46,17 @@ return {
         },
         {
             "<leader>fs",
-            function()
-                require("telescope.builtin").lsp_workspace_symbols()
-            end,
+            function() require("telescope.builtin").lsp_workspace_symbols() end,
             desc = "Telescope LSP symbols",
         },
         {
             "<leader>fd",
-            function()
-                require("telescope.builtin").lsp_document_symbols()
-            end,
+            function() require("telescope.builtin").lsp_document_symbols() end,
             desc = "Telescope LSP document symbols",
         },
         {
             "<leader>fk",
-            function()
-                require("telescope.builtin").keymaps()
-            end,
+            function() require("telescope.builtin").keymaps() end,
             desc = "Telescope keymaps",
         },
     },

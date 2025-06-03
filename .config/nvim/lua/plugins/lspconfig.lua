@@ -12,9 +12,7 @@ return {
     keys = {
         {
             "<C-CR>",
-            function()
-                vim.lsp.buf.code_action()
-            end,
+            function() vim.lsp.buf.code_action() end,
             desc = "Code action",
         },
     },
@@ -133,6 +131,7 @@ return {
                 },
             },
         })
+        vim.lsp.enable("biome")
 
         -- Vue
         vim.lsp.enable("vue_ls")
