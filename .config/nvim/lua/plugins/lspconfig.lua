@@ -4,7 +4,10 @@ local volar_path = mason_packages .. "/vue-language-server/node_modules/@vue/lan
 return {
     "neovim/nvim-lspconfig",
     version = "*",
-    dependencies = { "saghen/blink.cmp" },
+    dependencies = {
+        "mason-org/mason-lspconfig.nvim",
+        { "mason-org/mason.nvim", opts = {} },
+    },
     cond = require("utils").is_not_vscode,
 
     event = { "BufReadPre", "BufNewFile" },
@@ -18,8 +21,28 @@ return {
     },
 
     config = function()
+        require("mason-lspconfig").setup({
+            ensure_installed = {
+                -- C / C++
+                "clangd",
+                -- Python
+                "ruff",
+                "basedpyright",
+                -- Lua
+                "lua_ls",
+                -- Rust
+                "rust_analyzer",
+                -- Typescript
+                "ts_ls",
+                "biome",
+                -- Vue
+                "vue_ls",
+                "tailwindcss",
+            },
+            automatic_enable = true,
+        })
+
         -- C / C++
-        vim.lsp.enable("clangd")
         vim.lsp.config("clangd", {
             cmd = {
                 "clangd",
@@ -27,12 +50,7 @@ return {
             },
         })
 
-        -- Python
-        vim.lsp.enable("ruff")
-        vim.lsp.enable("basedpyright")
-
         -- Lua
-        vim.lsp.enable("lua_ls")
         vim.lsp.config("lua_ls", {
             on_init = function(client)
                 if client.workspace_folders then
@@ -83,7 +101,6 @@ return {
         })
 
         -- Rust
-        vim.lsp.enable("rust_analyzer")
         vim.lsp.config("rust_analyzer", {
             settings = {
                 ["rust-analyzer"] = {
@@ -93,7 +110,6 @@ return {
         })
 
         -- Typescript
-        vim.lsp.enable("ts_ls")
         vim.lsp.config("ts_ls", {
             init_options = {
                 plugins = {
@@ -131,10 +147,8 @@ return {
                 },
             },
         })
-        vim.lsp.enable("biome")
 
         -- Vue
-        vim.lsp.enable("vue_ls")
         vim.lsp.config("vue_ls", {
             init_options = {
                 vue = { hybridMode = false },
@@ -175,6 +189,5 @@ return {
                 },
             },
         })
-        vim.lsp.enable("tailwindcss")
     end,
 }
