@@ -53,7 +53,7 @@ return {
         -- Default list of enabled providers defined so that you can extend it
         -- elsewhere in your config, without redefining it, due to `opts_extend`
         sources = {
-            default = { "lsp", "path", "snippets", "buffer", "copilot" },
+            default = { "lazydev", "lsp", "path", "snippets", "buffer", "copilot" },
             providers = {
                 copilot = {
                     name = "copilot",
@@ -69,6 +69,12 @@ return {
                         end
                         return items
                     end,
+                },
+                lazydev = {
+                    name = "LazyDev",
+                    module = "lazydev.integrations.blink",
+                    -- make lazydev completions top priority (see `:h blink.cmp`)
+                    score_offset = 100,
                 },
             },
         },
