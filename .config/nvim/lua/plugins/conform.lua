@@ -11,6 +11,9 @@ return {
             cpp = { "clang-format" },
             rust = { "rustfmt" },
             python = { "ruff_format", "ruff_organize_imports", "ruff_fix" },
+            javascript = { "prettier" },
+            typescript = { "prettier" },
+            vue = { "prettier" },
         },
         format_on_save = {
             timeout_ms = 500,
