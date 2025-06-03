@@ -8,13 +8,9 @@ return {
 
     keys = {
         { "<leader>o", "<cmd>AerialToggle!<CR>", desc = "Toggle Aerial" },
+        { "{", "<cmd>AerialPrev<CR>", desc = "Jump to previous symbol" },
+        { "}", "<cmd>AerialNext<CR>", desc = "Jump to next symbol" },
     },
 
-    opts = {
-        on_attach = function(bufnr)
-            -- Jump forwards/backwards with '{' and '}'
-            vim.keymap.set("n", "{", "<cmd>AerialPrev<CR>", { buffer = bufnr, desc = "Jump to previous symbol" })
-            vim.keymap.set("n", "}", "<cmd>AerialNext<CR>", { buffer = bufnr, desc = "Jump to next symbol" })
-        end,
-    },
+    opts = {},
 }
