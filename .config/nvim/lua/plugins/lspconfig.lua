@@ -6,11 +6,13 @@ return {
     version = "*",
     dependencies = {
         "mason-org/mason-lspconfig.nvim",
+        { "WhoIsSethDaniel/mason-tool-installer.nvim" },
         { "mason-org/mason.nvim", opts = {} },
     },
     cond = require("utils").is_not_vscode,
 
-    event = { "BufReadPre", "BufNewFile" },
+    -- event = { "BufReadPre", "BufNewFile" },
+    lazy = false,
 
     keys = {
         {
@@ -21,10 +23,11 @@ return {
     },
 
     config = function()
-        require("mason-lspconfig").setup({
+        require("mason-tool-installer").setup({
             ensure_installed = {
                 -- C / C++
                 "clangd",
+                "clang-format",
                 -- Python
                 "ruff",
                 "basedpyright",
@@ -39,6 +42,9 @@ return {
                 "vue_ls",
                 "tailwindcss",
             },
+            auto_update = true,
+        })
+        require("mason-lspconfig").setup({
             automatic_enable = true,
         })
 
