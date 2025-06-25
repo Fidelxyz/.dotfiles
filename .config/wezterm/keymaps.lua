@@ -18,7 +18,8 @@ function M.setup(config)
                 args = { "nvim", wezterm.config_file },
             }),
         },
-        -- Splitting Panes
+
+        -- Panes
         {
             key = '"',
             mods = "LEADER",
@@ -50,7 +51,12 @@ function M.setup(config)
             action = wezterm.action.ActivatePaneDirection("Right"),
         },
 
-        -- Move Between Tabs
+        -- Tabs
+        {
+            key = "c",
+            mods = "LEADER",
+            action = wezterm.action.SpawnTab("CurrentPaneDomain"),
+        },
         {
             key = "p",
             mods = "LEADER",
