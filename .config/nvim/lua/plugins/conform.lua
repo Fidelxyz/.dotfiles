@@ -11,9 +11,9 @@ return {
             cpp = { "clang-format" },
             rust = { "rustfmt" },
             python = { "ruff_format", "ruff_organize_imports", "ruff_fix" },
-            javascript = { "prettier" },
-            typescript = { "prettier" },
-            vue = { "prettier" },
+            javascript = { "prettier", "biome-organize-imports" },
+            typescript = { "prettier", "biome-organize-imports" },
+            vue = { "prettier", "biome-organize-imports" },
         },
         format_on_save = {
             timeout_ms = 500,

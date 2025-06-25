@@ -21,6 +21,7 @@ return {
             "bash",
             "c",
             "cpp",
+            "css",
             "diff",
             "html",
             "javascript",

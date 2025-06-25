@@ -1,6 +1,3 @@
-local mason_packages = vim.fn.stdpath("data") .. "/mason/packages"
-local volar_path = mason_packages .. "/vue-language-server/node_modules/@vue/language-server"
-
 return {
     {
         "WhoIsSethDaniel/mason-tool-installer.nvim",
@@ -26,7 +23,6 @@ return {
                 "rust_analyzer",
                 -- Typescript
                 "ts_ls",
-                "biome",
                 -- Vue
                 "vue_ls",
                 "tailwindcss",
@@ -126,6 +122,9 @@ return {
             })
 
             -- Typescript
+            local mason_packages = vim.fn.stdpath("data") .. "/mason/packages"
+            local volar_path = mason_packages .. "/vue-language-server/node_modules/@vue/language-server"
+
             vim.lsp.config("ts_ls", {
                 init_options = {
                     plugins = {
@@ -140,7 +139,7 @@ return {
                     typescript = {
                         inlayHints = {
                             includeInlayParameterNameHints = "all",
-                            includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+                            includeInlayParameterNameHintsWhenArgumentMatchesName = false,
                             includeInlayFunctionParameterTypeHints = true,
                             includeInlayVariableTypeHints = true,
                             includeInlayVariableTypeHintsWhenTypeMatchesName = true,
@@ -152,7 +151,7 @@ return {
                     javascript = {
                         inlayHints = {
                             includeInlayParameterNameHints = "all",
-                            includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+                            includeInlayParameterNameHintsWhenArgumentMatchesName = false,
                             includeInlayFunctionParameterTypeHints = true,
                             includeInlayVariableTypeHints = true,
                             includeInlayVariableTypeHintsWhenTypeMatchesName = true,
