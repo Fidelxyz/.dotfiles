@@ -1,12 +1,16 @@
 return {
     {
+        "mason-org/mason.nvim",
+        lazy = true,
+        opts = {},
+    },
+    {
         "WhoIsSethDaniel/mason-tool-installer.nvim",
         dependencies = {
-            { "mason-org/mason.nvim", opts = {} },
-            { "mason-org/mason-lspconfig.nvim", opts = { automatic_enable = true } },
+            "mason-org/mason.nvim",
+            "mason-org/mason-lspconfig.nvim",
         },
         cond = require("utils").is_not_vscode,
-
         event = "VeryLazy",
 
         opts = {
@@ -21,10 +25,9 @@ return {
                 "lua_ls",
                 -- Rust
                 "rust_analyzer",
-                -- Typescript
-                "ts_ls",
-                "biome",
-                -- Vue
+                -- Javascript, Typescript & Vue
+                "biome", -- for biome-organize-imports
+                "vtsls",
                 "vue_ls",
                 "tailwindcss",
             },
@@ -56,11 +59,13 @@ return {
         config = function()
             -- C / C++
             vim.lsp.config("clangd", {
-                cmd = {
-                    "clangd",
-                    "--clang-tidy",
-                },
+                cmd = { "clangd", "--clang-tidy" },
             })
+            vim.lsp.enable("clangd")
+
+            -- Python
+            vim.lsp.enable("ruff")
+            vim.lsp.enable("basedpyright")
 
             -- Lua
             vim.lsp.config("lua_ls", {
@@ -111,6 +116,7 @@ return {
                     Lua = {},
                 },
             })
+            vim.lsp.enable("lua_ls")
 
             -- Rust
             vim.lsp.config("rust_analyzer", {
@@ -120,56 +126,68 @@ return {
                     },
                 },
             })
-
-            -- Typescript
-            local mason_packages = vim.fn.stdpath("data") .. "/mason/packages"
-            local volar_path = mason_packages .. "/vue-language-server/node_modules/@vue/language-server"
-
-            vim.lsp.config("ts_ls", {
-                init_options = {
-                    plugins = {
-                        {
-                            name = "@vue/typescript-plugin",
-                            location = volar_path,
-                            languages = { "vue" },
-                        },
-                    },
-                },
-                settings = {
-                    typescript = {
-                        inlayHints = {
-                            includeInlayParameterNameHints = "all",
-                            includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                            includeInlayFunctionParameterTypeHints = true,
-                            includeInlayVariableTypeHints = true,
-                            includeInlayVariableTypeHintsWhenTypeMatchesName = true,
-                            includeInlayPropertyDeclarationTypeHints = true,
-                            includeInlayFunctionLikeReturnTypeHints = true,
-                            includeInlayEnumMemberValueHints = true,
-                        },
-                    },
-                    javascript = {
-                        inlayHints = {
-                            includeInlayParameterNameHints = "all",
-                            includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                            includeInlayFunctionParameterTypeHints = true,
-                            includeInlayVariableTypeHints = true,
-                            includeInlayVariableTypeHintsWhenTypeMatchesName = true,
-                            includeInlayPropertyDeclarationTypeHints = true,
-                            includeInlayFunctionLikeReturnTypeHints = true,
-                            includeInlayEnumMemberValueHints = true,
-                        },
-                    },
-                },
-            })
-
-            vim.lsp.enable("biome", false)
+            vim.lsp.enable("rust_analyzer")
 
             -- Vue
-            vim.lsp.config("vue_ls", {
-                init_options = {
-                    vue = { hybridMode = false },
+            local vue_language_server_path = vim.fn.stdpath("data")
+                .. "/mason/packages/vue-language-server/node_modules/@vue/language-server"
+            local vue_plugin = {
+                name = "@vue/typescript-plugin",
+                location = vue_language_server_path,
+                languages = { "vue" },
+                configNamespace = "typescript",
+            }
+            vim.lsp.config("vtsls", {
+                settings = {
+                    vtsls = {
+                        tsserver = {
+                            globalPlugins = {
+                                vue_plugin,
+                            },
+                        },
+                    },
+                    typescript = {
+                        inlayHints = {
+                            parameterNames = { enabled = "all" },
+                            parameterTypes = { enabled = true },
+                            variableTypes = { enabled = true },
+                            propertyDeclarationTypes = { enabled = true },
+                            functionLikeReturnTypes = { enabled = true },
+                            enumMemberValues = { enabled = true },
+                        },
+                    },
                 },
+                filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+            })
+            vim.lsp.config("vue_ls", {
+                on_init = function(client)
+                    client.handlers["tsserver/request"] = function(_, result, context)
+                        local clients = vim.lsp.get_clients({ bufnr = context.bufnr, name = "vtsls" })
+                        if #clients == 0 then
+                            vim.notify(
+                                "Could not found `vtsls` lsp client, vue_lsp would not work without it.",
+                                vim.log.levels.ERROR
+                            )
+                            return
+                        end
+                        local ts_client = clients[1]
+
+                        local param = unpack(result)
+                        local id, command, payload = unpack(param)
+                        ts_client:exec_cmd({
+                            title = "vue_request_forward", -- You can give title anything as it's used to represent a command in the UI, `:h Client:exec_cmd`
+                            command = "typescript.tsserverRequest",
+                            arguments = {
+                                command,
+                                payload,
+                            },
+                        }, { bufnr = context.bufnr }, function(_, r)
+                            local response_data = { { id, r.body } }
+                            ---@diagnostic disable-next-line: param-type-mismatch
+                            client:notify("tsserver/response", response_data)
+                        end)
+                    end
+                end,
                 settings = {
                     typescript = {
                         inlayHints = {
@@ -206,6 +224,8 @@ return {
                     },
                 },
             })
+            vim.lsp.enable({ "vtsls", "vue_ls" })
+            vim.lsp.enable("tailwindcss")
         end,
     },
 }
