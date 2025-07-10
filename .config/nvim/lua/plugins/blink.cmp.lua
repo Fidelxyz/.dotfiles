@@ -1,5 +1,6 @@
 return {
     "saghen/blink.cmp",
+    version = "*", -- stable version required to download the corresponding binary built
     -- optional: provides snippets for the snippet source
     dependencies = {
         "rafamadriz/friendly-snippets",
