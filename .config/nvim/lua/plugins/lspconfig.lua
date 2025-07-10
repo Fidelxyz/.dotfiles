@@ -38,7 +38,6 @@ return {
     },
     {
         "neovim/nvim-lspconfig",
-        version = "*",
         dependencies = {
             "WhoIsSethDaniel/mason-tool-installer.nvim",
         },
