@@ -23,6 +23,7 @@ return {
                 "rust_analyzer",
                 -- Typescript
                 "ts_ls",
+                "biome",
                 -- Vue
                 "vue_ls",
                 "tailwindcss",
@@ -162,6 +163,8 @@ return {
                     },
                 },
             })
+
+            vim.lsp.enable("biome", false)
 
             -- Vue
             vim.lsp.config("vue_ls", {
