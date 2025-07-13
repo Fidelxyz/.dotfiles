@@ -1,6 +1,6 @@
 return {
     "nvim-telescope/telescope-ui-select.nvim",
-    event = "VeryLazy",
+    event = { "BufReadPre", "BufNewFile" },
 
     config = function()
         require("telescope").setup({

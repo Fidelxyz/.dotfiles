@@ -7,18 +7,23 @@ return {
     opts = {
         flavour = "mocha",
         integrations = {
+            aerial = true,
+            blink_cmp = true,
+            copilot_vim = true,
+            dropbar = {
+                enabled = true,
+                color_mode = true,
+            },
+            flash = true,
+            harpoon = true,
             indent_blankline = {
                 enabled = true,
                 scope_color = "subtext0",
                 colored_indent_levels = false,
             },
-            blink_cmp = true,
-            copilot_vim = true,
+            mason = true,
+            noice = true,
             which_key = true,
-            dropbar = {
-                enabled = true,
-                color_mode = true,
-            },
         },
     },
     config = function(_, opts)
