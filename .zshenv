@@ -11,6 +11,7 @@ export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export PYTHON_HISTORY="$XDG_STATE_HOME/python_history"
 export PYTHONPYCACHEPREFIX="$XDG_CACHE_HOME/python"
 export PYTHONUSERBASE="$XDG_DATA_HOME/python"
+export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 
 export EDITOR="nvim"
 export VISUAL="nvim"
