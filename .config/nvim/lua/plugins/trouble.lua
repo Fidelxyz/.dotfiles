@@ -1,6 +1,5 @@
 return {
     "folke/trouble.nvim",
-    cond = require("utils").is_not_vscode,
 
     opts = {},
     cmd = "Trouble",

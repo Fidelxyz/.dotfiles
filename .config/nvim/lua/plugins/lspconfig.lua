@@ -10,7 +10,6 @@ return {
             "mason-org/mason.nvim",
             "mason-org/mason-lspconfig.nvim",
         },
-        cond = require("utils").is_not_vscode,
         event = "VeryLazy",
 
         opts = {
@@ -41,17 +40,15 @@ return {
     },
     {
         "neovim/nvim-lspconfig",
-        dependencies = {
-            "WhoIsSethDaniel/mason-tool-installer.nvim",
-        },
-        cond = require("utils").is_not_vscode,
 
         event = { "BufReadPre", "BufNewFile" },
 
         keys = {
             {
                 "<C-CR>",
-                function() vim.lsp.buf.code_action() end,
+                function()
+                    vim.lsp.buf.code_action()
+                end,
                 desc = "Code action",
             },
         },

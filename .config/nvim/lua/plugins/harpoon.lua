@@ -2,7 +2,6 @@ return {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
     dependencies = { "nvim-lua/plenary.nvim" },
-    cond = require("utils").is_not_vscode,
 
     keys = {
         {

@@ -3,7 +3,6 @@ return {
     dependencies = {
         "AndreM222/copilot-lualine",
     },
-    cond = require("utils").is_not_vscode,
 
     cmd = "Copilot",
     event = "InsertEnter",

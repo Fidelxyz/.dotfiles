@@ -6,7 +6,6 @@ return {
         "MunifTanjim/nui.nvim",
         "nvim-treesitter/nvim-treesitter",
     },
-    cond = require("utils").is_not_vscode,
 
     opts = {
         lsp = {

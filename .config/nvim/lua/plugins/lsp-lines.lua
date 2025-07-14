@@ -2,7 +2,6 @@ return {
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
 
     event = "BufReadPre",
-    cond = require("utils").is_not_vscode,
 
     opts = {},
     config = function()
@@ -16,7 +15,7 @@ return {
             vim.diagnostic.config({
                 virtual_text = not enabled,
             })
-        end, { desc = "Toggle lsp_lines" })
+        end, { desc = "Toggle lsp-lines" })
 
         vim.api.nvim_create_autocmd("InsertEnter", {
             callback = function()

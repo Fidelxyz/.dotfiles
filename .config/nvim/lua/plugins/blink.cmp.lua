@@ -6,7 +6,6 @@ return {
         "rafamadriz/friendly-snippets",
         "giuxtaposition/blink-cmp-copilot",
     },
-    cond = require("utils").is_not_vscode,
 
     event = { "InsertEnter", "CmdlineEnter" },
 

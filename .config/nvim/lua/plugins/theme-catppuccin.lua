@@ -2,7 +2,6 @@ return {
     "catppuccin/nvim",
     name = "catppuccin",
     priority = 1000,
-    cond = require("utils").is_not_vscode,
 
     opts = {
         flavour = "mocha",

@@ -1,6 +1,5 @@
 return {
     "Bekaboo/dropbar.nvim",
-    cond = require("utils").is_not_vscode,
 
     event = { "BufRead", "BufNewFile" },
 

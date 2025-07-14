@@ -5,7 +5,6 @@ return {
     event = "VeryLazy",
 
     opts = {
-
         highlight = { enable = true },
         indent = { enable = true },
         incremental_selection = {
@@ -50,6 +49,10 @@ return {
     },
 
     config = function(_, opts)
+        if vim.g.vscode then
+            opts.highlight.enable = false
+        end
+
         require("nvim-treesitter.configs").setup(opts)
 
         -- Folding

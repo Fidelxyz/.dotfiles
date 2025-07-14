@@ -3,10 +3,15 @@ return {
     dependencies = {
         "nvim-tree/nvim-web-devicons",
     },
-    cond = require("utils").is_not_vscode,
 
     keys = {
-        { "<leader>e", function() require("nvim-tree.api").tree.toggle() end, desc = "Toggle Nvim Tree" },
+        {
+            "<leader>e",
+            function()
+                require("nvim-tree.api").tree.toggle()
+            end,
+            desc = "Toggle Nvim Tree",
+        },
     },
 
     opts = {},
