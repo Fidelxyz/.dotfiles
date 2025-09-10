@@ -22,6 +22,7 @@ return {
                 "basedpyright",
                 -- Lua
                 "lua_ls",
+                "stylua",
                 -- Rust
                 "rust_analyzer",
                 -- Javascript, Typescript & Vue
