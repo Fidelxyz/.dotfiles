@@ -21,12 +21,12 @@ return {
                 swap = {
                     enable = true,
                     swap_next = {
-                        ["<leader>sa"] = { query = "@parameter.inner", desc = "Swap a parameter with next" },
-                        ["<leader>sf"] = { query = "@function.outer", desc = "Swap a function with next" },
+                        ["ma"] = { query = "@parameter.inner", desc = "Swap a parameter with next" },
+                        ["mf"] = { query = "@function.outer", desc = "Swap a function with next" },
                     },
                     swap_previous = {
-                        ["<leader>sA"] = { query = "@parameter.inner", desc = "Swap a parameter with previous" },
-                        ["<leader>sF"] = { query = "@function.outer", desc = "Swap a function with previous" },
+                        ["mA"] = { query = "@parameter.inner", desc = "Swap a parameter with previous" },
+                        ["mF"] = { query = "@function.outer", desc = "Swap a function with previous" },
                     },
                 },
             },
