@@ -16,6 +16,7 @@ return {
                 accept_word = "<C-l>",
                 accept_line = "<C-j>",
             },
+            dismiss = "<C-]>",
         },
     },
     config = function(_, opts)
