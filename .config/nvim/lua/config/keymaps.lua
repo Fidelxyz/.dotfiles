@@ -1,5 +1,10 @@
 vim.keymap.set("n", "<C-i>", "<C-i>", { noremap = true })
 
+-- Save
+vim.keymap.set("n", "<leader>w", function()
+    vim.api.nvim_command("update")
+end, { desc = "Save file" })
+
 -- Super Tab
 vim.keymap.set("i", "<Tab>", function()
     local utils = require("utils")
