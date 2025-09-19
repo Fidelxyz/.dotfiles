@@ -4,6 +4,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
 export ZDOTDIR="$HOME/.config/zsh"
+export ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export NUGET_PACKAGES="$XDG_CACHE_HOME/NuGetPackages"
