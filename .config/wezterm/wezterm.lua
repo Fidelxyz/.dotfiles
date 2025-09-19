@@ -5,7 +5,7 @@ require("keymaps").setup(config)
 require("events")
 
 config.set_environment_variables = {
-	PATH = "/opt/homebrew/bin:" .. os.getenv("PATH"),
+    PATH = "/opt/homebrew/bin:" .. os.getenv("PATH"),
 }
 
 -- Window
@@ -15,16 +15,16 @@ config.window_background_opacity = 0.8
 config.text_background_opacity = 0.8
 config.macos_window_background_blur = 30
 config.window_padding = {
-	left = 30,
-	right = 30,
-	top = 30,
-	bottom = 30,
+    left = 30,
+    right = 30,
+    top = 30,
+    bottom = 30,
 }
 -- config.window_decorations = "INTEGRATED_BUTTONS | RESIZE | MACOS_FORCE_ENABLE_SHADOW"
 config.window_decorations = "INTEGRATED_BUTTONS | RESIZE"
 config.window_frame = {
-	font = wezterm.font({ family = "JetBrainsMono Nerd Font Mono", weight = "Bold" }),
-	font_size = 14,
+    font = wezterm.font({ family = "JetBrainsMono Nerd Font Mono", weight = "Bold" }),
+    font_size = 14,
 }
 
 -- Color scheme
@@ -39,7 +39,7 @@ config.color_scheme = "iTerm2 Smoooooth"
 -- })
 -- config.font = wezterm.font("Monaspace Argon")
 config.font = wezterm.font({
-	family = "Maple Mono NF CN",
+    family = "Maple Mono NF CN",
 })
 config.font_size = 16.0
 config.line_height = 1.1
