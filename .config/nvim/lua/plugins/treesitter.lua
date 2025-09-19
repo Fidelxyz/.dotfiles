@@ -5,7 +5,10 @@ return {
     event = "VeryLazy",
 
     opts = {
-        highlight = { enable = true },
+        highlight = {
+            enable = true,
+            disable = { "typst" },
+        },
         indent = { enable = false },
         incremental_selection = {
             enable = true,
@@ -40,6 +43,7 @@ return {
             "toml",
             "tsx",
             "typescript",
+            "typst",
             "vim",
             "vimdoc",
             "vue",

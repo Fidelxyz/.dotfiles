@@ -30,6 +30,8 @@ return {
                 "vtsls",
                 "vue_ls",
                 "tailwindcss",
+                -- Typst
+                "tinymist",
             },
             auto_update = true,
         },
@@ -196,6 +198,15 @@ return {
             })
             vim.lsp.enable({ "vtsls", "vue_ls" })
             vim.lsp.enable("tailwindcss")
+
+            -- Typst
+            vim.lsp.config("tinymist", {
+                settings = {
+                    formatterMode = "typstyle",
+                    exportPdf = "onType",
+                },
+            })
+            vim.lsp.enable("tinymist")
         end,
     },
 }

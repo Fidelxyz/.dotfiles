@@ -5,6 +5,7 @@ return {
     dependencies = {
         "rafamadriz/friendly-snippets",
         "giuxtaposition/blink-cmp-copilot",
+        "xieyonn/blink-cmp-dat-word",
     },
 
     event = { "InsertEnter", "CmdlineEnter" },
@@ -52,7 +53,11 @@ return {
         -- Default list of enabled providers defined so that you can extend it
         -- elsewhere in your config, without redefining it, due to `opts_extend`
         sources = {
-            default = { "lazydev", "lsp", "path", "snippets", "buffer", "copilot" },
+            default = { "lsp", "path", "snippets", "buffer", "copilot" },
+            per_filetype = {
+                lua = { inherit_defaults = true, "lazydev" },
+                typst = { inherit_defaults = true, "datword" },
+            },
             providers = {
                 copilot = {
                     name = "copilot",
@@ -69,11 +74,24 @@ return {
                         return items
                     end,
                 },
+
                 lazydev = {
                     name = "LazyDev",
                     module = "lazydev.integrations.blink",
                     -- make lazydev completions top priority (see `:h blink.cmp`)
                     score_offset = 100,
+                },
+
+                datword = {
+                    name = "Word",
+                    module = "blink-cmp-dat-word",
+                    score_offset = -100,
+                    opts = {
+                        paths = {
+                            "/usr/share/dict/words",
+                        },
+                        spellsuggest = true,
+                    },
                 },
             },
         },
