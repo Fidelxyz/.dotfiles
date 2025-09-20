@@ -14,6 +14,7 @@ return {
     },
 
     opts = {
+        surround_chars = { "{", "}", "[", "]", "(", ")", "'", '"', "`" },
         enable_wrapped_deletion = true,
     },
 }
