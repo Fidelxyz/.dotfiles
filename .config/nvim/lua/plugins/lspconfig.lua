@@ -25,6 +25,8 @@ return {
                 "stylua",
                 -- Rust
                 "rust_analyzer",
+                -- GLSL
+                "glsl_analyzer",
                 -- Javascript, Typescript & Vue
                 "biome", -- for biome-organize-imports
                 "vtsls",
@@ -32,6 +34,8 @@ return {
                 "tailwindcss",
                 -- Typst
                 "tinymist",
+                -- JSON
+                "jq",
             },
             auto_update = true,
         },
@@ -57,6 +61,8 @@ return {
         },
 
         config = function()
+            vim.lsp.set_log_level("off")
+
             -- C / C++
             vim.lsp.config("clangd", {
                 cmd = { "clangd", "--clang-tidy" },
@@ -127,6 +133,9 @@ return {
                 },
             })
             vim.lsp.enable("rust_analyzer")
+
+            -- GLSL
+            vim.lsp.enable("glsl_analyzer")
 
             -- Vue
             local vue_language_server_path = vim.fn.stdpath("data")

@@ -25,6 +25,7 @@ return {
             "cpp",
             "css",
             "diff",
+            "glsl",
             "html",
             "javascript",
             "jsdoc",

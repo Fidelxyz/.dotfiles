@@ -10,10 +10,12 @@ return {
             c = { "clang-format" },
             cpp = { "clang-format" },
             rust = { "rustfmt" },
+            glsl = { "clang-format" },
             python = { "ruff_format", "ruff_organize_imports", "ruff_fix" },
             javascript = { "prettier", "biome-organize-imports" },
             typescript = { "prettier", "biome-organize-imports" },
             vue = { "prettier", "biome-organize-imports" },
+            json = { "jq" },
         },
         format_on_save = {
             timeout_ms = 500,
