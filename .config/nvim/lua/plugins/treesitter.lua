@@ -42,7 +42,6 @@ return {
             "regex",
             "rust",
             "toml",
-            "tsx",
             "typescript",
             "typst",
             "vim",

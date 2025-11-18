@@ -55,7 +55,6 @@ return {
         sources = {
             default = { "lsp", "path", "snippets", "buffer", "copilot" },
             per_filetype = {
-                lua = { inherit_defaults = true, "lazydev" },
                 typst = { inherit_defaults = true, "datword" },
             },
             providers = {
@@ -107,13 +106,6 @@ return {
                         end
                         return items
                     end,
-                },
-
-                lazydev = {
-                    name = "LazyDev",
-                    module = "lazydev.integrations.blink",
-                    -- make lazydev completions top priority (see `:h blink.cmp`)
-                    score_offset = 100,
                 },
 
                 datword = {
