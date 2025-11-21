@@ -34,6 +34,9 @@ return {
                 end,
             },
         },
+        renderer = {
+            highlight_git = "all",
+        },
         filters = {
             git_ignored = false,
         },
