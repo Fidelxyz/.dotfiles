@@ -18,6 +18,7 @@ return {
             },
             auto_update = true,
         },
+        opts_extend = { "ensure_installed" },
 
         config = function(_, opts)
             require("mason-tool-installer").setup(opts)
