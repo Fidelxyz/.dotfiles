@@ -14,6 +14,10 @@
 	path = .config/zsh/omz-custom/plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
 
+[submodule ".config/zsh/omz-custom/plugins/zsh-vi-mode"]
+	path = .config/zsh/omz-custom/plugins/zsh-vi-mode
+	url = https://github.com/jeffreytse/zsh-vi-mode.git
+
 [submodule ".config/zsh/omz-custom/themes/powerlevel10k"]
 	path = .config/zsh/omz-custom/themes/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
