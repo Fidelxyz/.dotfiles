@@ -6,6 +6,7 @@ return {
             ensure_installed = {
                 "clangd",
                 "clang-format",
+                "cmakelang",
                 "codelldb",
             },
         },
@@ -17,6 +18,7 @@ return {
             formatters_by_ft = {
                 cpp = { "clang-format" },
                 c = { "clang-format" },
+                cmake = { "cmake_format" },
             },
         },
     },
