@@ -10,7 +10,7 @@ return {
         -- Disable by default
         vim.diagnostic.config({ virtual_lines = false })
 
-        vim.keymap.set("n", "<Leader>ll", function()
+        vim.keymap.set("n", "<Leader>xl", function()
             local enabled = lsp_lines.toggle()
             vim.diagnostic.config({
                 virtual_text = not enabled,
