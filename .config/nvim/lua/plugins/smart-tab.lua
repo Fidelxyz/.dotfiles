@@ -10,6 +10,7 @@ return {
                 require("smart-tab").smart_tab()
             end,
             mode = "i",
+            desc = "Smart Tab: Escape",
         },
     },
 

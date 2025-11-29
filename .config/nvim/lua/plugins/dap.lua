@@ -23,23 +23,23 @@ return {
 
         -- stylua: ignore
         keys = {
-            { "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Breakpoint Condition" },
-            { "<leader>db", function() require("dap").toggle_breakpoint() end, desc = "Toggle Breakpoint" },
-            { "<leader>dc", function() require("dap").continue() end, desc = "Run/Continue" },
-            { "<leader>da", function() require("dap").continue({ before = get_args }) end, desc = "Run with Args" },
-            { "<leader>dC", function() require("dap").run_to_cursor() end, desc = "Run to Cursor" },
-            { "<leader>dg", function() require("dap").goto_() end, desc = "Go to Line (No Execute)" },
-            { "<leader>di", function() require("dap").step_into() end, desc = "Step Into" },
-            { "<leader>dj", function() require("dap").down() end, desc = "Down" },
-            { "<leader>dk", function() require("dap").up() end, desc = "Up" },
-            { "<leader>dl", function() require("dap").run_last() end, desc = "Run Last" },
-            { "<leader>do", function() require("dap").step_out() end, desc = "Step Out" },
-            { "<leader>dO", function() require("dap").step_over() end, desc = "Step Over" },
-            { "<leader>dP", function() require("dap").pause() end, desc = "Pause" },
-            { "<leader>dr", function() require("dap").repl.toggle() end, desc = "Toggle REPL" },
-            { "<leader>ds", function() require("dap").session() end, desc = "Session" },
-            { "<leader>dt", function() require("dap").terminate() end, desc = "Terminate" },
-            { "<leader>dw", function() require("dap.ui.widgets").hover() end, desc = "Widgets" },
+            { "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Debugging: Breakpoint Condition" },
+            { "<leader>db", function() require("dap").toggle_breakpoint() end,                                    desc = "Debugging: Toggle Breakpoint" },
+            { "<leader>dc", function() require("dap").continue() end,                                             desc = "Debugging: Run/Continue" },
+            { "<leader>da", function() require("dap").continue({ before = get_args }) end,                        desc = "Debugging: Run with Args" },
+            { "<leader>dC", function() require("dap").run_to_cursor() end,                                        desc = "Debugging: Run to Cursor" },
+            { "<leader>dg", function() require("dap").goto_() end,                                                desc = "Debugging: Go to Line (No Execute)" },
+            { "<leader>di", function() require("dap").step_into() end,                                            desc = "Debugging: Step Into" },
+            { "<leader>dj", function() require("dap").down() end,                                                 desc = "Debugging: Down" },
+            { "<leader>dk", function() require("dap").up() end,                                                   desc = "Debugging: Up" },
+            { "<leader>dl", function() require("dap").run_last() end,                                             desc = "Debugging: Run Last" },
+            { "<leader>do", function() require("dap").step_out() end,                                             desc = "Debugging: Step Out" },
+            { "<leader>dO", function() require("dap").step_over() end,                                            desc = "Debugging: Step Over" },
+            { "<leader>dP", function() require("dap").pause() end,                                                desc = "Debugging: Pause" },
+            { "<leader>dr", function() require("dap").repl.toggle() end,                                          desc = "Debugging: Toggle REPL" },
+            { "<leader>ds", function() require("dap").session() end,                                              desc = "Debugging: Session" },
+            { "<leader>dt", function() require("dap").terminate() end,                                            desc = "Debugging: Terminate" },
+            { "<leader>dw", function() require("dap.ui.widgets").hover() end,                                     desc = "Debugging: Widgets" },
         },
     },
     {
@@ -48,8 +48,8 @@ return {
 
         -- stylua: ignore
         keys = {
-            { "<leader>du", function() require("dapui").toggle({}) end, desc = "Dap UI" },
-            { "<leader>de", function() require("dapui").eval() end, desc = "Eval", mode = {"n", "v"} },
+            { "<leader>du", function() require("dapui").toggle({}) end, desc = "Debugging: Dap UI" },
+            { "<leader>de", function() require("dapui").eval() end,     desc = "Debugging: Eval", mode = {"n", "v"} },
         },
 
         opts = {},

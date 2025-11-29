@@ -6,13 +6,14 @@ function M.setup(config)
     config.leader = {
         key = "b",
         mods = "CMD",
+        ---@diagnostic disable-next-line: undefined-field
         timeout_milliseconds = math.maxinteger,
     }
     config.keys = {
         -- Open Configuration
         {
             key = ",",
-            mods = "SUPER",
+            mods = "CMD",
             action = wezterm.action.SpawnCommandInNewTab({
                 cwd = wezterm.config_dir,
                 args = { "nvim", wezterm.config_file },

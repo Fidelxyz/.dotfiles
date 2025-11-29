@@ -3,7 +3,7 @@ vim.keymap.set("n", "<C-i>", "<C-i>", { noremap = true })
 -- Save
 vim.keymap.set("n", "<leader>w", function()
     vim.api.nvim_command("update")
-end, { desc = "Save file" })
+end, { desc = "Save" })
 
 -- Super Tab
 vim.keymap.set("i", "<Tab>", function()
@@ -27,11 +27,17 @@ vim.keymap.set("n", "<leader>r", function()
     if new_name ~= "" then
         vim.lsp.buf.rename(new_name)
     end
-end, { desc = "Rename" })
+end, { desc = "LSP: Rename" })
 
 -- Diagnostic
 vim.keymap.set("n", "<leader>d", function()
     vim.diagnostic.open_float({
         scope = "cursor",
     })
-end, { desc = "Show line diagnostics" })
+end, { desc = "Diagnostic: Show line diagnostics" })
+
+-- Move to beginning or end of line
+vim.keymap.set("n", "H", "^", { noremap = true })
+vim.keymap.set("n", "L", "$", { noremap = true })
+-- Add new line below
+vim.keymap.set("n", "<CR>", "o<Esc>", { noremap = true })

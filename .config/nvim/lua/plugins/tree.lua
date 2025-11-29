@@ -10,7 +10,7 @@ return {
             function()
                 require("nvim-tree.api").tree.toggle()
             end,
-            desc = "Toggle Nvim Tree",
+            desc = "Nvim Tree",
         },
     },
 

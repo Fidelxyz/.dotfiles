@@ -3,35 +3,52 @@ return {
 
     opts = {},
     cmd = "Trouble",
+
     keys = {
         {
             "<leader>xx",
-            "<cmd>Trouble diagnostics toggle<cr>",
-            desc = "Trouble: Diagnostics",
+            function()
+                require("trouble").toggle("diagnostics")
+            end,
+            desc = "Diagnostics: Toggle",
         },
         {
             "<leader>xX",
-            "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-            desc = "Trouble: Buffer Diagnostics",
+            function()
+                ---@diagnostic disable-next-line: missing-fields
+                require("trouble").toggle({ mode = "diagnostics", filter = { buf = 0 } })
+            end,
+            desc = "Diagnostics: Toggle (Current Buffer)",
         },
         {
             "<leader>cs",
-            "<cmd>Trouble symbols toggle focus=false<cr>",
+            function()
+                ---@diagnostic disable-next-line: missing-fields
+                require("trouble").toggle({ mode = "symbols", focus = false })
+            end,
             desc = "Trouble: Symbols",
         },
+        ---@diagnostic disable-next-line: missing-fields
         {
             "<leader>cl",
-            "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+            function()
+                ---@diagnostic disable-next-line: missing-fields
+                require("trouble").toggle({ mode = "lsp", focus = false, win = { position = "right" } })
+            end,
             desc = "Trouble: LSP Definitions / references / ...",
         },
         {
             "<leader>xL",
-            "<cmd>Trouble loclist toggle<cr>",
+            function()
+                require("trouble").toggle("loclist")
+            end,
             desc = "Trouble: Location List",
         },
         {
             "<leader>xQ",
-            "<cmd>Trouble qflist toggle<cr>",
+            function()
+                require("trouble").toggle("qflist")
+            end,
             desc = "Trouble: Quickfix List",
         },
     },

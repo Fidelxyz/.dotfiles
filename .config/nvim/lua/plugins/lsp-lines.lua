@@ -3,19 +3,23 @@ return {
 
     event = "BufReadPre",
 
+    keys = {
+        {
+            "<Leader>xl",
+            function()
+                local enabled = require("lsp_lines").toggle()
+                vim.diagnostic.config({
+                    virtual_text = not enabled,
+                })
+            end,
+            desc = "Diagnostics: Toggle lsp-lines",
+        },
+    },
+
     opts = {},
     config = function()
-        local lsp_lines = require("lsp_lines")
-
         -- Disable by default
         vim.diagnostic.config({ virtual_lines = false })
-
-        vim.keymap.set("n", "<Leader>xl", function()
-            local enabled = lsp_lines.toggle()
-            vim.diagnostic.config({
-                virtual_text = not enabled,
-            })
-        end, { desc = "Toggle lsp-lines" })
 
         vim.api.nvim_create_autocmd("InsertEnter", {
             callback = function()

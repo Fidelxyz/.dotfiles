@@ -33,7 +33,7 @@ return {
             function()
                 require("flash").treesitter()
             end,
-            desc = "Flash Treesitter",
+            desc = "Flash: Treesitter",
         },
         {
             "r",
@@ -41,7 +41,7 @@ return {
             function()
                 require("flash").remote()
             end,
-            desc = "Remote Flash",
+            desc = "Flash: Remate",
         },
     },
 }

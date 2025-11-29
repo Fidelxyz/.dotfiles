@@ -8,15 +8,15 @@ return {
 
         -- stylua: ignore
         keys = {
-            { "<C-Space>", function() require("telescope.builtin").find_files() end, desc = "Telescope find files" },
-            { "<leader>ff", function() require("telescope.builtin").find_files() end, desc = "Telescope find files" },
-            { "<leader>fg", function() require("telescope.builtin").live_grep() end, desc = "Telescope live grep" },
-            { "<leader>fb", function() require("telescope.builtin").buffers({ initial_mode = "normal" }) end, desc = "Telescope buffers" },
-            { "<leader>fh", function() require("telescope.builtin").help_tags() end, desc = "Telescope help tags" },
-            { "<leader>fr", function() require("telescope.builtin").lsp_references({ initial_mode = "normal" }) end, desc = "Telescope LSP references" },
-            { "<leader>fs", function() require("telescope.builtin").lsp_workspace_symbols() end, desc = "Telescope LSP symbols" },
-            { "<leader>fd", function() require("telescope.builtin").lsp_document_symbols() end, desc = "Telescope LSP document symbols" },
-            { "<leader>fk", function() require("telescope.builtin").keymaps() end, desc = "Telescope keymaps" },
+            { "<C-Space>", function() require("telescope.builtin").find_files() end, desc = "Telescope: find files" },
+            { "<leader>ff", function() require("telescope.builtin").find_files() end, desc = "Telescope: find files" },
+            { "<leader>fg", function() require("telescope.builtin").live_grep() end, desc = "Telescope: live grep" },
+            { "<leader>fb", function() require("telescope.builtin").buffers({ initial_mode = "normal" }) end, desc = "Telescope: buffers" },
+            { "<leader>fh", function() require("telescope.builtin").help_tags() end, desc = "Telescope: help tags" },
+            { "<leader>fr", function() require("telescope.builtin").lsp_references({ initial_mode = "normal" }) end, desc = "Telescope: LSP references" },
+            { "<leader>fs", function() require("telescope.builtin").lsp_workspace_symbols() end, desc = "Telescope: LSP symbols" },
+            { "<leader>fd", function() require("telescope.builtin").lsp_document_symbols() end, desc = "Telescope: LSP document symbols" },
+            { "<leader>fk", function() require("telescope.builtin").keymaps() end, desc = "Telescope: keymaps" },
         },
 
         opts = function()
