@@ -9,12 +9,10 @@ return {
         },
     },
     {
-        "stevearc/conform.nvim",
+        "nvim-treesitter/nvim-treesitter",
         optional = true,
         opts = {
-            formatters_by_ft = {
-                rust = { "rustfmt" },
-            },
+            ensure_installed = { "rust" },
         },
     },
     {
@@ -30,5 +28,14 @@ return {
             })
             vim.lsp.enable("rust_analyzer")
         end,
+    },
+    {
+        "stevearc/conform.nvim",
+        optional = true,
+        opts = {
+            formatters_by_ft = {
+                rust = { "rustfmt" },
+            },
+        },
     },
 }

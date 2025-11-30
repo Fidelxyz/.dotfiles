@@ -10,12 +10,10 @@ return {
         },
     },
     {
-        "stevearc/conform.nvim",
+        "nvim-treesitter/nvim-treesitter",
         optional = true,
         opts = {
-            formatters_by_ft = {
-                lua = { "stylua" },
-            },
+            ensure_installed = { "lua", "luadoc", "luap" },
         },
     },
     {
@@ -72,5 +70,14 @@ return {
             })
             vim.lsp.enable("lua_ls")
         end,
+    },
+    {
+        "stevearc/conform.nvim",
+        optional = true,
+        opts = {
+            formatters_by_ft = {
+                lua = { "stylua" },
+            },
+        },
     },
 }

@@ -10,12 +10,10 @@ return {
         },
     },
     {
-        "stevearc/conform.nvim",
+        "nvim-treesitter/nvim-treesitter",
         optional = true,
         opts = {
-            formatters_by_ft = {
-                glsl = { "clang-format" },
-            },
+            ensure_installed = { "glsl" },
         },
     },
     {
@@ -24,5 +22,14 @@ return {
         opts = function()
             vim.lsp.enable("glsl_analyzer")
         end,
+    },
+    {
+        "stevearc/conform.nvim",
+        optional = true,
+        opts = {
+            formatters_by_ft = {
+                glsl = { "clang-format" },
+            },
+        },
     },
 }

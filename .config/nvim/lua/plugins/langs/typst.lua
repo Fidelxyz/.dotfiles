@@ -9,6 +9,13 @@ return {
         },
     },
     {
+        "nvim-treesitter/nvim-treesitter",
+        optional = true,
+        opts = {
+            ensure_installed = { "typst" },
+        },
+    },
+    {
         "neovim/nvim-lspconfig",
         optional = true,
         opts = function()

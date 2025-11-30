@@ -9,6 +9,13 @@ return {
         },
     },
     {
+        "nvim-treesitter/nvim-treesitter",
+        optional = true,
+        opts = {
+            ensure_installed = { "json", "jsonc" },
+        },
+    },
+    {
         "stevearc/conform.nvim",
         optional = true,
         opts = {

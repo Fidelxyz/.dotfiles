@@ -12,14 +12,10 @@ return {
         },
     },
     {
-        "stevearc/conform.nvim",
+        "nvim-treesitter/nvim-treesitter",
         optional = true,
         opts = {
-            formatters_by_ft = {
-                cpp = { "clang-format" },
-                c = { "clang-format" },
-                cmake = { "cmake_format" },
-            },
+            ensure_installed = { "c", "cpp", "cmake" },
         },
     },
     {
@@ -31,6 +27,17 @@ return {
             })
             vim.lsp.enable("clangd")
         end,
+    },
+    {
+        "stevearc/conform.nvim",
+        optional = true,
+        opts = {
+            formatters_by_ft = {
+                cpp = { "clang-format" },
+                c = { "clang-format" },
+                cmake = { "cmake_format" },
+            },
+        },
     },
     {
         "mfussenegger/nvim-dap",

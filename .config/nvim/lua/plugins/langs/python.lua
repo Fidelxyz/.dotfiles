@@ -10,12 +10,10 @@ return {
         },
     },
     {
-        "stevearc/conform.nvim",
+        "nvim-treesitter/nvim-treesitter",
         optional = true,
         opts = {
-            formatters_by_ft = {
-                python = { "ruff_format", "ruff_organize_imports", "ruff_fix" },
-            },
+            ensure_installed = { "python" },
         },
     },
     {
@@ -34,5 +32,14 @@ return {
             })
             vim.lsp.enable("basedpyright")
         end,
+    },
+    {
+        "stevearc/conform.nvim",
+        optional = true,
+        opts = {
+            formatters_by_ft = {
+                python = { "ruff_format", "ruff_organize_imports", "ruff_fix" },
+            },
+        },
     },
 }

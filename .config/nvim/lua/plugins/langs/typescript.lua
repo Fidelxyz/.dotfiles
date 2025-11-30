@@ -12,14 +12,10 @@ return {
         },
     },
     {
-        "stevearc/conform.nvim",
+        "nvim-treesitter/nvim-treesitter",
         optional = true,
         opts = {
-            formatters_by_ft = {
-                javascript = { "prettier", "biome-organize-imports" },
-                typescript = { "prettier", "biome-organize-imports" },
-                vue = { "prettier", "biome-organize-imports" },
-            },
+            ensure_installed = { "css", "html", "javascript", "jsdoc", "typescript", "vue" },
         },
     },
     {
@@ -97,6 +93,17 @@ return {
             vim.lsp.enable({ "vtsls", "vue_ls" })
             vim.lsp.enable("tailwindcss")
         end,
+    },
+    {
+        "stevearc/conform.nvim",
+        optional = true,
+        opts = {
+            formatters_by_ft = {
+                javascript = { "prettier", "biome-organize-imports" },
+                typescript = { "prettier", "biome-organize-imports" },
+                vue = { "prettier", "biome-organize-imports" },
+            },
+        },
     },
 
     -- Extra plugins
