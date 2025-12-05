@@ -41,3 +41,5 @@ vim.keymap.set("n", "H", "^", { noremap = true })
 vim.keymap.set("n", "L", "$", { noremap = true })
 -- Add new line below
 vim.keymap.set("n", "<CR>", "o<Esc>", { noremap = true })
+-- Delete a word in insert mode
+vim.keymap.set("i", "<C-BS>", "<C-w>", { noremap = true })
