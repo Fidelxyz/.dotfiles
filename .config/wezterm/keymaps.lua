@@ -68,6 +68,16 @@ function M.setup(config)
             mods = "LEADER",
             action = wezterm.action.ActivateTabRelative(1),
         },
+        {
+            key = "LeftArrow",
+            mods = "LEADER",
+            action = wezterm.action.MoveTabRelative(-1),
+        },
+        {
+            key = "RightArrow",
+            mods = "LEADER",
+            action = wezterm.action.MoveTabRelative(1),
+        },
     }
     for i = 1, 9 do
         table.insert(config.keys, {
