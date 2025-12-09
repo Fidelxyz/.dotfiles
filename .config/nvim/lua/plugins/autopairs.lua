@@ -1,6 +1,5 @@
 return {
-    "Fidelxyz/nvim-autopairs",
-    branch = "fix-ts-conds",
+    "windwp/nvim-autopairs",
     event = "InsertEnter",
     opts = {},
 
