@@ -4,15 +4,15 @@ return {
     opts = {},
 
     config = function(_, opts)
-        require("nvim-autopairs").setup(opts)
-
-        local npairs = require("nvim-autopairs")
+        local autopairs = require("nvim-autopairs")
         local Rule = require("nvim-autopairs.rule")
         local cond = require("nvim-autopairs.conds")
         local ts_cond = require("nvim-autopairs.ts-conds")
 
-        local rule_pair_inside_surrounding = function(a1, ins, a2, lang)
-            return Rule(ins, ins, lang)
+        autopairs.setup(opts)
+
+        local rule_pair_inside_surrounding = function(a1, ins, a2, filetype)
+            return Rule(ins, ins, filetype)
                 :with_pair(function(o)
                     return a1 .. a2 == o.line:sub(o.col - #a1, o.col + #a2 - 1)
                 end)
@@ -24,17 +24,15 @@ return {
                 end)
         end
 
-        npairs.add_rules({
+        autopairs.add_rules({
             Rule("$", "$", "typst"),
             Rule("(", ")", "typst"),
-            Rule("*", "*", "typst"),
-            rule_pair_inside_surrounding("(", " ", ")"),
+            Rule("*", "*", "typst"):with_pair(ts_cond.is_ts_node({ "text", "parbreak", "item", "heading" })),
+            Rule("'", "'", "typst"):with_pair(ts_cond.is_ts_node({ "text", "parbreak", "item", "heading" })),
+            -- Add spaces between parentheses
+            rule_pair_inside_surrounding("(", " ", ")", "typst"),
             -- Add spaces between math equation "$"
             rule_pair_inside_surrounding("$", " ", "$", "typst"),
         })
-
-        for _, rule in pairs(npairs.get_rules("'")) do
-            rule:with_pair(ts_cond.is_not_ts_node({ "math" }))
-        end
     end,
 }
