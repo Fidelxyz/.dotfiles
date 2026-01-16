@@ -37,9 +37,21 @@ vim.keymap.set("n", "<leader>d", function()
 end, { desc = "Diagnostic: Show line diagnostics" })
 
 -- Move to beginning or end of line
-vim.keymap.set("n", "H", "^", { noremap = true })
-vim.keymap.set("n", "L", "$", { noremap = true })
+vim.keymap.set({ "n", "v" }, "H", "^", { noremap = true })
+vim.keymap.set({ "n", "v" }, "L", "$", { noremap = true })
 -- Add new line below
 vim.keymap.set("n", "<CR>", "o<Esc>", { noremap = true })
 -- Delete a word in insert mode
 vim.keymap.set("i", "<C-BS>", "<C-w>", { noremap = true })
+
+-- Delete without yanking
+vim.keymap.set("x", "p", function()
+    return 'pgv"' .. vim.v.register .. "y`>"
+end, { expr = true })
+vim.keymap.set("x", "P", function()
+    return 'Pgv"' .. vim.v.register .. "y`>"
+end, { expr = true })
+vim.keymap.set("n", "x", '"_x', { noremap = true })
+vim.keymap.set("n", "X", '"_X', { noremap = true })
+vim.keymap.set({ "n", "v" }, "c", '"_c', { noremap = true })
+vim.keymap.set({ "n", "v" }, "C", '"_C', { noremap = true })
