@@ -20,7 +20,6 @@ source "$ZDOTDIR/.ohmyzsh.zsh"
 type fzf >/dev/null    && source <(fzf --zsh)
 type direnv >/dev/null && eval "$(direnv hook zsh)"
 type zoxide >/dev/null && eval "$(zoxide init zsh)"
-type gh >/dev/null     && eval "$(gh copilot alias -- zsh)"
 
 # ========================================
 
