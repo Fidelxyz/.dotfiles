@@ -12,9 +12,9 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         optional = true,
-        opts = {
-            ensure_installed = { "glsl" },
-        },
+        opts = function()
+            require("nvim-treesitter").install({ "glsl" })
+        end,
     },
     {
         "neovim/nvim-lspconfig",

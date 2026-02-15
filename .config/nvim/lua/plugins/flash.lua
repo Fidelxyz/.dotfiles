@@ -43,5 +43,19 @@ return {
             end,
             desc = "Flash: Remate",
         },
+
+        {
+            "v",
+            mode = { "n", "x", "o" },
+            function()
+                require("flash").treesitter({
+                    actions = {
+                        ["v"] = "next",
+                        ["V"] = "prev",
+                    },
+                })
+            end,
+            desc = "Flash: Treesitter incremental selection",
+        },
     },
 }

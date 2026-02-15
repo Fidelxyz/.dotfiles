@@ -1,6 +1,6 @@
 return {
     {
-        "WhoIsSethDaniel/mason-tool-installer.nvim",
+        "whoissethdaniel/mason-tool-installer.nvim",
         optional = true,
         opts = {
             ensure_installed = {
@@ -14,40 +14,40 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         optional = true,
-        opts = {
-            ensure_installed = { "css", "html", "javascript", "jsdoc", "typescript", "vue" },
-        },
+        opts = function()
+            require("nvim-treesitter").install({ "css", "html", "javascript", "jsdoc", "typescript", "vue" })
+        end,
     },
     {
         "neovim/nvim-lspconfig",
         optional = true,
         opts = function()
-            -- Vue
+            -- vue
             local vue_language_server_path = vim.fn.stdpath("data")
                 .. "/mason/packages/vue-language-server/node_modules/@vue/language-server"
             local vue_plugin = {
                 name = "@vue/typescript-plugin",
                 location = vue_language_server_path,
                 languages = { "vue" },
-                configNamespace = "typescript",
+                confignamespace = "typescript",
             }
             vim.lsp.config("vtsls", {
                 settings = {
                     vtsls = {
                         tsserver = {
-                            globalPlugins = {
+                            globalplugins = {
                                 vue_plugin,
                             },
                         },
                     },
                     typescript = {
-                        inlayHints = {
-                            parameterNames = { enabled = "all" },
-                            parameterTypes = { enabled = true },
-                            variableTypes = { enabled = true },
-                            propertyDeclarationTypes = { enabled = true },
-                            functionLikeReturnTypes = { enabled = true },
-                            enumMemberValues = { enabled = true },
+                        inlayhints = {
+                            parameternames = { enabled = "all" },
+                            parametertypes = { enabled = true },
+                            variabletypes = { enabled = true },
+                            propertydeclarationtypes = { enabled = true },
+                            functionlikereturntypes = { enabled = true },
+                            enummembervalues = { enabled = true },
                         },
                     },
                 },
@@ -56,36 +56,36 @@ return {
             vim.lsp.config("vue_ls", {
                 settings = {
                     typescript = {
-                        inlayHints = {
-                            enumMemberValues = { enabled = true },
-                            functionLikeReturnTypes = { enabled = true },
-                            propertyDeclarationTypes = { enabled = true },
-                            parameterTypes = {
+                        inlayhints = {
+                            enummembervalues = { enabled = true },
+                            functionlikereturntypes = { enabled = true },
+                            propertydeclarationtypes = { enabled = true },
+                            parametertypes = {
                                 enabled = true,
-                                suppressWhenArgumentMatchesName = true,
+                                suppresswhenargumentmatchesname = true,
                             },
-                            variableTypes = { enabled = true },
+                            variabletypes = { enabled = true },
                         },
                     },
                     javascript = {
-                        inlayHints = {
-                            enumMemberValues = { enabled = true },
-                            functionLikeReturnTypes = { enabled = true },
-                            propertyDeclarationTypes = { enabled = true },
-                            parameterTypes = {
+                        inlayhints = {
+                            enummembervalues = { enabled = true },
+                            functionlikereturntypes = { enabled = true },
+                            propertydeclarationtypes = { enabled = true },
+                            parametertypes = {
                                 enabled = true,
-                                suppressWhenArgumentMatchesName = true,
+                                suppresswhenargumentmatchesname = true,
                             },
-                            variableTypes = { enabled = true },
+                            variabletypes = { enabled = true },
                         },
                     },
                     vue = {
-                        inlayHints = {
-                            destructuredProps = true,
-                            missingProps = true,
-                            inlineHandlerLeading = true,
-                            optionsWrapper = true,
-                            vBindShorthand = true,
+                        inlayhints = {
+                            destructuredprops = true,
+                            missingprops = true,
+                            inlinehandlerleading = true,
+                            optionswrapper = true,
+                            vbindshorthand = true,
                         },
                     },
                 },
@@ -106,13 +106,15 @@ return {
         },
     },
 
-    -- Extra plugins
+    -- extra plugins
     {
         "windwp/nvim-ts-autotag",
-        event = { "BufReadPre", "BufNewFile" },
+        event = { "bufreadpre", "bufnewfile" },
 
         opts = {
-            enable_close_on_slash = true,
+            opts = {
+                enable_close_on_slash = true,
+            },
         },
     },
 }

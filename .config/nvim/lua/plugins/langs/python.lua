@@ -12,9 +12,9 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         optional = true,
-        opts = {
-            ensure_installed = { "python" },
-        },
+        opts = function()
+            require("nvim-treesitter").install({ "python" })
+        end,
     },
     {
         "neovim/nvim-lspconfig",

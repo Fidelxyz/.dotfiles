@@ -30,7 +30,7 @@ vim.keymap.set("n", "<leader>r", function()
 end, { desc = "LSP: Rename" })
 
 -- Diagnostic
-vim.keymap.set("n", "<leader>d", function()
+vim.keymap.set("n", "<leader>xs", function()
     vim.diagnostic.open_float({
         scope = "cursor",
     })

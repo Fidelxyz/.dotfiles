@@ -1,51 +1,47 @@
 return {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
+    {
+        "nvim-treesitter/nvim-treesitter",
+        branch = "main",
+        lazy = false,
+        build = ":TSUpdate",
 
-    event = "VeryLazy",
-
-    opts = {
-        highlight = {
-            enable = true,
-            disable = { "typst" },
-        },
-        indent = { enable = false },
-        incremental_selection = {
-            enable = true,
-            keymaps = {
-                init_selection = false,
-                node_incremental = "v",
-                node_decremental = "V",
-                scope_incremental = false,
+        opts = {
+            incremental_selection = {
+                enable = true,
+                keymaps = {
+                    init_selection = false,
+                    node_incremental = "v",
+                    node_decremental = "V",
+                    scope_incremental = false,
+                },
             },
         },
-        ensure_installed = {
-            -- Defined in language-specific configs
-            "bash",
-            "diff",
-            "markdown",
-            "markdown_inline",
-            "printf",
-            "query",
-            "regex",
-            "toml",
-            "vim",
-            "vimdoc",
-            "xml",
-            "yaml",
+
+        config = function()
+            require("nvim-treesitter").install({
+                -- Defined in language-specific configs
+                "bash",
+                "diff",
+                "markdown",
+                "markdown_inline",
+                "printf",
+                "query",
+                "regex",
+                "toml",
+                "vim",
+                "vimdoc",
+                "xml",
+                "yaml",
+            })
+        end,
+    },
+    {
+        "WhoIsSethDaniel/mason-tool-installer.nvim",
+        optional = true,
+        opts = {
+            ensure_installed = {
+                "tree-sitter-cli",
+            },
         },
     },
-    opts_extend = { "ensure_installed" },
-
-    config = function(_, opts)
-        if vim.g.vscode then
-            opts.highlight.enable = false
-        end
-
-        require("nvim-treesitter.configs").setup(opts)
-
-        -- Folding
-        vim.wo.foldmethod = "expr"
-        vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-    end,
 }

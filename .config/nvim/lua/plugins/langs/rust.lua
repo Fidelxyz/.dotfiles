@@ -11,9 +11,9 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         optional = true,
-        opts = {
-            ensure_installed = { "rust" },
-        },
+        opts = function()
+            require("nvim-treesitter").install({ "rust" })
+        end,
     },
     {
         "neovim/nvim-lspconfig",

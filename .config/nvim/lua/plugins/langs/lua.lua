@@ -12,9 +12,9 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         optional = true,
-        opts = {
-            ensure_installed = { "lua", "luadoc", "luap" },
-        },
+        opts = function()
+            require("nvim-treesitter").install({ "lua", "luadoc", "luap" })
+        end,
     },
     {
         "neovim/nvim-lspconfig",

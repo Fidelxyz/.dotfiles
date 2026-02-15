@@ -14,9 +14,9 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         optional = true,
-        opts = {
-            ensure_installed = { "c", "cpp", "cmake" },
-        },
+        opts = function()
+            require("nvim-treesitter").install({ "c", "cpp", "cmake" })
+        end,
     },
     {
         "neovim/nvim-lspconfig",

@@ -11,9 +11,9 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         optional = true,
-        opts = {
-            ensure_installed = { "typst" },
-        },
+        opts = function()
+            require("nvim-treesitter").install({ "typst" })
+        end,
     },
     {
         "neovim/nvim-lspconfig",

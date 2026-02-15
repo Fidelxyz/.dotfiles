@@ -11,9 +11,9 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         optional = true,
-        opts = {
-            ensure_installed = { "json", "jsonc" },
-        },
+        opts = function()
+            require("nvim-treesitter").install({ "json" })
+        end,
     },
     {
         "stevearc/conform.nvim",
