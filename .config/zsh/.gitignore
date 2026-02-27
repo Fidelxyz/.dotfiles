@@ -2,4 +2,5 @@
 .zsh_sessions
 
 # Local Config
-.zshrc-local.zsh
+zshrc-local.zsh
+secrets.zsh

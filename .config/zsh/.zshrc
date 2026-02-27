@@ -23,4 +23,5 @@ type zoxide >/dev/null && eval "$(zoxide init zsh)"
 
 # ========================================
 
-[[ ! -f "$ZDOTDIR/.zshrc-local.zsh" ]] || source "$ZDOTDIR/.zshrc-local.zsh"
+[[ ! -f "$ZDOTDIR/zshrc-local.zsh" ]] || source "$ZDOTDIR/zshrc-local.zsh"
+[[ ! -f "$ZDOTDIR/secrets.zsh" ]]     || source "$ZDOTDIR/secrets.zsh"
