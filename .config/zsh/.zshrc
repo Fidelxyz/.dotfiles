@@ -16,10 +16,16 @@ source "$ZDOTDIR/.ohmyzsh.zsh"
 # Powerlevel10k
 [[ ! -f "$ZDOTDIR/.p10k.zsh" ]] || source "$ZDOTDIR/.p10k.zsh"
 
-# Scripts
-type fzf >/dev/null    && source <(fzf --zsh)
-type direnv >/dev/null && eval "$(direnv hook zsh)"
-type zoxide >/dev/null && eval "$(zoxide init zsh)"
+# fzf
+if (( $+commands[fd] )); then
+    export FZF_DEFAULT_COMMAND="fd --type f --hidden --no-ignore-vcs --exclude .git"
+    export FZF_CTRL_T_COMMAND="fd --type f --hidden --no-ignore-vcs --exclude .git"
+    export FZF_ALT_C_COMMAND="fd --type d --hidden --no-ignore-vcs --exclude .git"
+fi
+(( $+commands[fzf] ))    && source <(fzf --zsh)
+
+(( $+commands[direnv] )) && eval "$(direnv hook zsh)"
+(( $+commands[zoxide] )) && eval "$(zoxide init zsh)"
 
 # ========================================
 
