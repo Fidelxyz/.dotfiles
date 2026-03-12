@@ -1,5 +1,33 @@
 {
     "$schema": "https://opencode.ai/config.json",
+    "permission": {
+        "bash": {
+            "*": "ask",
+            "rm *": "deny",
+            "npm *": "deny",
+            "pip3 *": "deny",
+            "ls *": "allow",
+            "cat *": "allow",
+            "find *": "allow",
+            "grep *": "allow",
+            "head *": "allow",
+            "tail *": "allow",
+            "wc *": "allow",
+            "git status *": "allow",
+            "git diff *": "allow",
+            "git log *": "allow"
+        }
+    },
+    "agent": {
+        "general": {
+            "mode": "subagent",
+            "model": "github-copilot/claude-sonnet-4.6"
+        },
+        "explore": {
+            "mode": "subagent",
+            "model": "github-copilot/gemini-3-flash-preview"
+        }
+    },
     "mcp": {
         "github": {
             "type": "remote",
@@ -8,6 +36,13 @@
             "headers": {
                 "Authorization": "Bearer {env:GITHUB_MCP_PAT}"
             }
+        },
+        "markitdown": {
+            "type": "local",
+            "command": [
+                "uvx",
+                "markitdown-mcp"
+            ]
         }
     }
 }
