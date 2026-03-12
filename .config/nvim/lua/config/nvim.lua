@@ -26,6 +26,10 @@ vim.opt.smartcase = true
 -- Fold
 vim.opt.foldlevel = 99
 
+-- Terminal Title
+vim.opt.title = true
+vim.opt.titlestring = 'nvim | %{fnamemodify(getcwd(),":t")}'
+
 vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_python3_provider = 0
