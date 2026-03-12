@@ -31,7 +31,6 @@ return {
                 "vim",
                 "vimdoc",
                 "xml",
-                "yaml",
             })
         end,
     },
