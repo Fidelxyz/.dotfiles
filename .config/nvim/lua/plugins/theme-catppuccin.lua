@@ -24,6 +24,18 @@ return {
             noice = true,
             which_key = true,
         },
+
+        ---@module 'catppuccin.colors'
+        ---@param colors CtpColors<string>
+        ---Style Guide: https://github.com/catppuccin/catppuccin/blob/main/docs/style-guide.md
+        custom_highlights = function(colors)
+            return {
+                -- Diffview
+                -- https://github.com/sindrets/diffview.nvim/blob/main/lua/diffview/hl.lua
+                DiffviewDiffDelete = { fg = colors.surface0 },
+                DiffviewDiffDeleteDim = { fg = colors.surface0 },
+            }
+        end,
     },
     config = function(_, opts)
         require("catppuccin").setup(opts)

@@ -1,5 +1,7 @@
 return {
-    "sindrets/diffview.nvim",
+    "dlyongemallo/diffview.nvim",
+    version = "*",
+
     cmd = {
         "DiffviewOpen",
         "DiffviewClose",
@@ -8,4 +10,13 @@ return {
         "DiffviewRefresh",
         "DiffviewFileHistory",
     },
+
+    opts = {
+        enhanced_diff_hl = true,
+    },
+
+    config = function(_, opts)
+        require("diffview").setup(opts)
+        vim.opt.fillchars = vim.opt.fillchars + "diff:╱"
+    end,
 }
