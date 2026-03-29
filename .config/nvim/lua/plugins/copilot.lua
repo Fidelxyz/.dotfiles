@@ -18,6 +18,10 @@ return {
             },
             dismiss = "<C-]>",
         },
+        filetypes = {
+            text = false,
+            markdown = true,
+        },
     },
     config = function(_, opts)
         require("copilot").setup(opts)
