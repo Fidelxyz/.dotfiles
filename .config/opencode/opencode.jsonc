@@ -14,19 +14,20 @@
             "tail *": "allow",
             "wc *": "allow",
             "git status *": "allow",
+            "git show *": "allow",
             "git diff *": "allow",
             "git log *": "allow"
         }
     },
     "agent": {
-        "general": {
-            "mode": "subagent",
-            "model": "github-copilot/claude-sonnet-4.6"
-        },
-        "explore": {
-            "mode": "subagent",
-            "model": "github-copilot/gemini-3-flash-preview"
-        }
+        // "general": {
+        //     "mode": "subagent",
+        //     "model": "openrouter/minimax/minimax-m2.5"
+        // },
+        // "explore": {
+        //     "mode": "subagent",
+        //     "model": "openrouter/minimax/minimax-m2.5"
+        // }
     },
     "mcp": {
         "github": {
@@ -44,5 +45,5 @@
                 "markitdown-mcp"
             ]
         }
-    }
+    },
 }
