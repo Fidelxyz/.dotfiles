@@ -36,7 +36,7 @@ return {
                         runtime = {
                             -- Tell the language server which version of Lua you're using (most
                             -- likely LuaJIT in the case of Neovim)
-                            version = "LuaJIT",
+                            -- version = "LuaJIT",
                             -- Tell the language server how to find Lua modules same way as Neovim
                             -- (see `:h lua-module-load`)
                             path = {
