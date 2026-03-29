@@ -20,7 +20,6 @@ return {
         config = function()
             require("nvim-treesitter").install({
                 -- Defined in language-specific configs
-                "bash",
                 "diff",
                 "markdown",
                 "markdown_inline",
