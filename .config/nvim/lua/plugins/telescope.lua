@@ -20,6 +20,8 @@ return {
             { "<leader>fs", function() require("telescope.builtin").lsp_workspace_symbols() end, desc = "Telescope: LSP symbols" },
             { "<leader>fd", function() require("telescope.builtin").lsp_document_symbols() end, desc = "Telescope: LSP document symbols" },
             { "<leader>fk", function() require("telescope.builtin").keymaps() end, desc = "Telescope: keymaps" },
+            { "<leader>fl", function() require("telescope.builtin").highlights() end, desc = "Telescope: highlights" },
+            { "<leader>fp", function() require("telescope.builtin").resume() end, desc = "Telescope: resume" },
         },
 
         opts = function()
@@ -33,6 +35,8 @@ return {
             -- I don't want to search in the `.git` directory.
             table.insert(vimgrep_arguments, "--glob")
             table.insert(vimgrep_arguments, "!**/.git/*")
+            table.insert(vimgrep_arguments, "--glob")
+            table.insert(vimgrep_arguments, "!**/.jj/*")
 
             return {
                 defaults = {
@@ -53,9 +57,29 @@ return {
                             "--no-ignore-vcs",
                             "--exclude",
                             ".git",
+                            "--exclude",
+                            ".jj",
                         },
-                        live_grep = { additional_args = { "--hidden", "--glob", "!.git", "--no-ignore-vcs" } },
-                        grep_string = { additional_args = { "--hidden", "--glob", "!.git", "--no-ignore-vcs" } },
+                        live_grep = {
+                            additional_args = {
+                                "--hidden",
+                                "--glob",
+                                "!.git",
+                                "--glob",
+                                "!.jj",
+                                "--no-ignore-vcs",
+                            },
+                        },
+                        grep_string = {
+                            additional_args = {
+                                "--hidden",
+                                "--glob",
+                                "!.git",
+                                "--glob",
+                                "!.jj",
+                                "--no-ignore-vcs",
+                            },
+                        },
                     },
                 },
             }

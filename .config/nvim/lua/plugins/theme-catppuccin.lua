@@ -9,6 +9,7 @@ return {
             aerial = true,
             blink_cmp = true,
             copilot_vim = true,
+            diffview = true,
             dropbar = {
                 enabled = true,
                 color_mode = true,
@@ -34,6 +35,13 @@ return {
                 -- https://github.com/sindrets/diffview.nvim/blob/main/lua/diffview/hl.lua
                 DiffviewDiffDelete = { fg = colors.surface0 },
                 DiffviewDiffDeleteDim = { fg = colors.surface0 },
+
+                -- Hunk
+                HunkTreeFileAdded = { fg = colors.green },
+                HunkTreeFileDeleted = { fg = colors.red },
+                HunkTreeFileModified = { fg = colors.blue },
+                HunkTreeDirIcon = { fg = colors.yellow },
+                HunkTreeSelectionIcon = { fg = colors.overlay2 },
             }
         end,
     },

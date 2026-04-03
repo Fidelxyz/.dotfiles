@@ -23,6 +23,7 @@ return {
         config = function(_, opts)
             require("mason-tool-installer").setup(opts)
             vim.api.nvim_command("MasonToolsInstall")
+            vim.api.nvim_command("MasonToolsUpdate")
         end,
     },
 }

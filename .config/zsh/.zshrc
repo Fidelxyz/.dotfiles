@@ -23,6 +23,7 @@ if (( $+commands[fd] )); then
     export FZF_ALT_C_COMMAND="fd --type d --hidden --no-ignore-vcs --exclude .git"
 fi
 (( $+commands[fzf] ))    && source <(fzf --zsh)
+(( $+commands[jj] ))     && source <(COMPLETE=zsh jj)
 
 (( $+commands[direnv] )) && eval "$(direnv hook zsh)"
 (( $+commands[zoxide] )) && eval "$(zoxide init zsh)"
