@@ -18,6 +18,8 @@ export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export PYTHON_HISTORY="$XDG_STATE_HOME/python_history"
 export PYTHONPYCACHEPREFIX="$XDG_CACHE_HOME/python"
 export PYTHONUSERBASE="$XDG_DATA_HOME/python"
+# Node.js
+export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
 # npm
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 # nuget
