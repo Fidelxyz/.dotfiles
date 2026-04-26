@@ -105,16 +105,4 @@ return {
             },
         },
     },
-
-    -- extra plugins
-    {
-        "windwp/nvim-ts-autotag",
-        event = { "bufreadpre", "bufnewfile" },
-
-        opts = {
-            opts = {
-                enable_close_on_slash = true,
-            },
-        },
-    },
 }
