@@ -12,6 +12,7 @@ return {
         -- stylua: ignore
         keys = {
             { "<C-Space>", function() require("telescope.builtin").find_files() end, desc = "Telescope: find files" },
+            { "<leader>f", "", desc = "Telescope" },
             { "<leader>ff", function() require("telescope.builtin").find_files() end, desc = "Telescope: find files" },
             { "<leader>fg", function() require("telescope.builtin").live_grep() end, desc = "Telescope: live grep" },
             { "<leader>fb", function() require("telescope.builtin").buffers({ initial_mode = "normal" }) end, desc = "Telescope: buffers" },

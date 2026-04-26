@@ -7,7 +7,7 @@ return {
     },
 
     keys = {
-        { "<leader>o", "<cmd>AerialToggle!<CR>", desc = "Toggle Aerial" },
+        { "<leader>o", "<cmd>AerialToggle!<CR>", desc = "Aerial" },
         { "{", "<cmd>AerialPrev<CR>", desc = "Jump to previous symbol" },
         { "}", "<cmd>AerialNext<CR>", desc = "Jump to next symbol" },
     },

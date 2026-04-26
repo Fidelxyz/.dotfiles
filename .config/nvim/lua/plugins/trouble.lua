@@ -10,7 +10,7 @@ return {
             function()
                 require("trouble").toggle("diagnostics")
             end,
-            desc = "Diagnostics: Toggle",
+            desc = "Diagnostics: Toggle Diagnostics List",
         },
         {
             "<leader>xX",
@@ -18,7 +18,7 @@ return {
                 ---@diagnostic disable-next-line: missing-fields
                 require("trouble").toggle({ mode = "diagnostics", filter = { buf = 0 } })
             end,
-            desc = "Diagnostics: Toggle (Current Buffer)",
+            desc = "Diagnostics: Toggle Diagnostics List (Current Buffer)",
         },
         {
             "<leader>cs",

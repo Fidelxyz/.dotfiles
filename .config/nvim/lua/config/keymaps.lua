@@ -8,17 +8,25 @@ end, { desc = "Save" })
 -- Super Tab
 vim.keymap.set("i", "<Tab>", function()
     local utils = require("utils")
-    local smart_tab = utils.is_not_vscode() and require("smart-tab") or nil
-    local suggestion = utils.is_not_vscode() and require("copilot.suggestion") or nil
-    local auto_indent = utils.is_not_vscode() and require("utils.auto-indent") or nil
+    local is_not_vscode = utils.is_not_vscode()
 
+    local suggestion = is_not_vscode and require("copilot.suggestion")
     if suggestion and suggestion.is_visible() then -- Copilot
         suggestion.accept()
-    elseif smart_tab and not utils.is_blank_line() and smart_tab.smart_tab() then -- Smart tab
-    elseif auto_indent and auto_indent.check_indent() then -- Auto indent
-    else
-        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
+        return
     end
+
+    local smart_tab = is_not_vscode and require("smart-tab")
+    if smart_tab and not utils.is_blank_line() and smart_tab.smart_tab() then -- Smart tab
+        return
+    end
+
+    local auto_indent = is_not_vscode and require("utils.auto-indent")
+    if auto_indent and auto_indent.check_indent() then -- Auto indent
+        return
+    end
+
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
 end, { desc = "Super Tab" })
 
 -- Rename
@@ -30,11 +38,13 @@ vim.keymap.set("n", "<leader>r", function()
 end, { desc = "LSP: Rename" })
 
 -- Diagnostic
+vim.keymap.set("n", "<leader>x", "", { desc = "Diagnostics" })
 vim.keymap.set("n", "<leader>xs", function()
-    vim.diagnostic.open_float({
-        scope = "cursor",
-    })
-end, { desc = "Diagnostic: Show line diagnostics" })
+    vim.diagnostic.open_float({ scope = "cursor" })
+end, { desc = "Diagnostics: Show line diagnostics" })
+vim.keymap.set("n", "<leader>xt", function()
+    vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+end, { desc = "Diagnostics: Toggle" })
 
 -- Move to beginning or end of line
 vim.keymap.set({ "n", "v" }, "H", "^", { noremap = true })
