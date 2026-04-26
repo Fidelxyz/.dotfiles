@@ -8,6 +8,8 @@ config.set_environment_variables = {
     PATH = "/opt/homebrew/bin:" .. os.getenv("PATH"),
 }
 
+config.term = "wezterm"
+
 -- Window
 config.initial_rows = 30
 config.initial_cols = 100
