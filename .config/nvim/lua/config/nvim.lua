@@ -1,23 +1,18 @@
--- True Color
+-- Display
 vim.opt.termguicolors = true
-
--- Line Number
-vim.wo.number = true
+vim.opt.number = true
+vim.lsp.inlay_hint.enable(true)
 
 -- Indent
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 
--- Warp
--- vim.opt.wrap = false
-
 -- Clipboard
 vim.opt.clipboard = "unnamedplus"
 
 -- Editor
 vim.opt.scrolloff = 8
-vim.lsp.inlay_hint.enable(true)
 
 -- Search
 vim.opt.ignorecase = true

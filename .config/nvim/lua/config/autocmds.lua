@@ -48,6 +48,9 @@ vim.api.nvim_create_autocmd("FileType", {
     group = "Treesitter",
     callback = function(args)
         local lang = vim.treesitter.language.get_lang(args.match)
+        if not lang then
+            return
+        end
 
         if vim.treesitter.query.get(lang, "highlights") then
             vim.treesitter.start(args.buf)
@@ -61,5 +64,21 @@ vim.api.nvim_create_autocmd("FileType", {
             vim.opt_local.foldmethod = "expr"
             vim.opt_local.foldexpr = "v:lua.vim.treesitter.foldexpr()"
         end
+    end,
+})
+
+vim.api.nvim_create_augroup("ColorColumn", {})
+vim.api.nvim_create_autocmd("FileType", {
+    group = "ColorColumn",
+    pattern = { "text" },
+    callback = function()
+        vim.opt_local.colorcolumn = "80"
+    end,
+})
+vim.api.nvim_create_autocmd("FileType", {
+    group = "ColorColumn",
+    pattern = { "markdown", "lua" },
+    callback = function()
+        vim.opt_local.colorcolumn = "120"
     end,
 })
