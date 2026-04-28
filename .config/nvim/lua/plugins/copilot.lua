@@ -21,6 +21,7 @@ return {
         filetypes = {
             text = false,
             markdown = true,
+            yaml = true,
         },
     },
     config = function(_, opts)
